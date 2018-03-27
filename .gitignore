@@ -6,3 +6,4 @@ public/vendor/
 dist/
 scripts/
 nohup.out
+package.sublime-workspace

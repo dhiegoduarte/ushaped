@@ -31,10 +31,12 @@ module.exports = function() {
 	
 	// middleware
 	app.use(express.static('./public'));
+
+	// variável de ambiente
 	app.set('view engine', 'ejs');
 	app.set('views','./app/views');
 	
-	// para suportar o override de delete e put
+	// middlewares para suportar o override de delete e put
 	app.use(bodyParser.urlencoded({extended: true}));
 	app.use(bodyParser.json());
 	app.use(require('method-override')());

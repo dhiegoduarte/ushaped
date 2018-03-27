@@ -3,16 +3,13 @@ console.log('public/js/main.js', Date.now());
 
 // angular.module('ushaped', []);
 
-// adicionando o modulo de rotas como dependencia do principal
+// adicionando modulos como dependencia do principal (rotas, resource etc)
 angular.module('ushaped', ['ngRoute','ngResource','meusComponentes'])
 	.config(function($routeProvider, $httpProvider) {
 
 		$httpProvider.interceptors.push('meuInterceptor');
 		
-		// Um ponto importante é que toda rota configurada por $routeProvider para ser disparada deve 
-		// ser acessada através da URL da página principal adicionando o prefixo #, o famoso hash. 
-		// Por exemplo: http://localhost:3000/index.html#/contatos ou http://localhost:3000/#/contatos.
-		// A URL http://localhost:3000/contatos acessa a rota do lado do servidor, definida em app/routes/contato.js
+		// Contatos
 		$routeProvider.when('/contatos', {
 			templateUrl: 'partials/contatos.html',
 			controller: 'ContatosController'
@@ -28,10 +25,28 @@ angular.module('ushaped', ['ngRoute','ngResource','meusComponentes'])
 			controller: 'ContatoController'
 		});
 
+		// Medidas
+		$routeProvider.when('/medidas', {
+			templateUrl: 'partials/medidas.html',
+			controller: 'MedidasController'
+		});
+
+		$routeProvider.when('/medida/:medidaId', {
+			templateUrl: 'partials/medida.html',
+			controller: 'MedidaController'
+		});
+
+		$routeProvider.when('/medida', {
+			templateUrl: 'partials/medida.html',
+			controller: 'MedidaController'
+		});
+
+		// Autenticacao
 		$routeProvider.when('/auth', {
 			templateUrl: 'partials/auth.html'
 		});
 
+		// Rota defualt
 		$routeProvider.otherwise({redirectTo: '/contatos'});
 	
 });
