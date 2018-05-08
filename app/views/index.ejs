@@ -17,14 +17,16 @@
 	<!-- Configurando sistema de rotas. Removido body e adicionado div. Controlller removido pois assossiacao de controllers sera feita atraves da configuracao de rotas -->
 	<body class="container">
 		<!-- <h1>Bem-vindo ao Ushaped</h1> -->
-		<div class="text-right">
-			<p>
-				Logado como: <span id="usuario-logado">
-				<%=usuarioLogado %>
-				<span>
-				<a href="/logout">Logout</a>
+		<%if (usuarioLogado.length > 0) { %>
+			<div class="text-right">
+				<p>
+					Logado como: <span id="usuario-logado">
+					<%=usuarioLogado %>
+					<span>
+					<a href="/logout">Logout</a>
 				</p>
 			</div>
+		<% } %>
 		<!-- ng-view sinaliza para o sistema de rotas a área da página que receberá views parciais. -->
 		<div ng-view></div>
 		<!-- <button ng-click="incrementa()">Novo</button> -->

@@ -45,11 +45,16 @@ module.exports = function() {
 	// OAuth 2.0
 	app.use(cookieParser());
 	app.use(session(
-		{ secret: 'homem avestruz',
+		// o cookie de sessão é assinado com este segredo para evitar adulteração.
+		{ secret: 'uhephfsrfiueahiuspisrhgebitnisrbirtbnibrpirtnklnlnrgln',
 		resave: true,
 		saveUninitialized: true
 	}
 	));
+
+	// Um ponto a destacar é que a inicialização da sessão do Express
+	// deve vir sempre antes de passport.session para garantirmos
+	// que a sessão de login seja restaurada na ordem correta.
 	app.use(passport.initialize());
 	app.use(passport.session());
 
@@ -59,14 +64,15 @@ module.exports = function() {
 	// informado de forma intencional que a tecnologia utilizada é PHP 
 	// no intuito de dificultar a vida de hacker
 	// app.use(helmet.hidePoweredBy({ setTo: 'PHP 5.5.14' }));
+	
 	// evitamos que nossas páginas sejam referenciadas por <frame> ou <iframe>.
-	app.use(helmet.xframe());
+	app.use(helmet.frameguard());
 	// evita cross-site scripting.adiciona o header htpp X-XSS-Protection. O header solicita ao navegador a
 	// ativação de uma proteção especial contra XSS.
 	app.use(helmet.xssFilter());
 	// adiciona header de resposta houver X-Content-Type-Options que proibe navegadores de carregar 
 	// através das tags link e script arquivos que não sejam dos MIME types text/css e text/javascript
-	app.use(helmet.nosniff());
+	app.use(helmet.noSniff());
 
 
 	// precisamos carregar as pastas seguindo a ordem models,
