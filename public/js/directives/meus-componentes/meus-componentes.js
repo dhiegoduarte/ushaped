@@ -61,7 +61,6 @@ angular.module('meusComponentes', [])
 	return directive;
 })
 
-// para essa diretiva funcionar, em public/js/controllers/ContatoController.js devera ser setado no escopo btnBackFocus = true.
 .directive('meuFocus', function() {
 	var directive = {};
 	

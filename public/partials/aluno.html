@@ -1,0 +1,50 @@
+<!-- public/aluno.html -->
+<h1 class="text-center">Aluno</h1>
+<p ng-show="mensagem.texto">
+	{{mensagem.texto}}
+</p>
+<form ng-submit="salva()">
+	<div class="form-row">
+		<div class="form-group col-9">
+			<label for="nome">Nome completo</label>
+			<input type="text" class="form-control" id="nome" name="nome" required ng-model="aluno.nome">
+		</div>
+		<div class="form-check  form-check-inline col">
+			<input class="form-check-input" type="radio" name="masculino" id="masculino" value="M" ng-model="aluno.genero">
+	  		<label class="form-check-label" for="masculino">Masculino</label>
+		</div>
+		<div class="form-check  form-check-inline col">
+			<input type="radio" class="form-check-input" id="feminino" name="feminino" value="F" ng-model="aluno.genero">
+			<label class="form-check-label" for="feminino">Feminino</label>
+		</div>
+	</div>
+	<div class="form-row">
+		<div class="form-group col">
+			<label for="email">Email</label>
+			<div class="input-group">
+				<span class="input-group-text">@</span>
+				<input type="email" class="form-control" id="email" placeholder="email@exemplo.com" name="email" ng-model="aluno.email" required>
+			</div>
+		</div>
+		<div class="form-group col">
+			<label for="telefone">Telefone</label>
+			<input type="text" class="form-control" id="telefone" name="telefone" required ng-model="aluno.telefone">		
+		</div>
+	</div>
+	<div class="form-row">
+		<div class="form-group col">
+			<label for="peso">Peso</label>
+			<input type="text" class="form-control" id="peso" name="peso" required ng-model="aluno.peso" maxlength="3"> 
+			<small id="pesoHelp" class="form-text text-muted">Em kilogramas</small>
+		</div>
+		<div class="form-group col">
+			<label for="altura">Altura</label>
+			<input type="text" class="form-control" id="altura" name="altura" required ng-model="aluno.altura" maxlength="3">
+			<small id="alturaHelp" class="form-text text-muted">Em centímetros</small>
+		</div>
+	</div>
+	<div>
+		<button type="submit" class="btn btn-primary">Salvar</button>
+		<a meu-focus evento="alunoSalvo" href="#/alunos" class="btn btn-default">Voltar</a>
+	</div>
+</form>

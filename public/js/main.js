@@ -5,11 +5,15 @@ console.log('public/js/main.js', Date.now());
 
 // adicionando modulos como dependencia do principal (rotas, resource etc)
 angular.module('ushaped', ['ngRoute','ngResource','meusComponentes'])
-	.config(function($routeProvider, $httpProvider) {
+	.config(["$routeProvider", "$httpProvider", function($routeProvider, $httpProvider) {
 
 		$httpProvider.interceptors.push('meuInterceptor');
 		
-		// Contatos
+		$routeProvider.when('/home', {
+			templateUrl: 'partials/home.html'
+			// controller: 'ContatosController'
+		});
+
 		$routeProvider.when('/contatos', {
 			templateUrl: 'partials/contatos.html',
 			controller: 'ContatosController'
@@ -25,7 +29,6 @@ angular.module('ushaped', ['ngRoute','ngResource','meusComponentes'])
 			controller: 'ContatoController'
 		});
 
-		// Medidas
 		$routeProvider.when('/medidas', {
 			templateUrl: 'partials/medidas.html',
 			controller: 'MedidasController'
@@ -41,15 +44,30 @@ angular.module('ushaped', ['ngRoute','ngResource','meusComponentes'])
 			controller: 'MedidaController'
 		});
 
+		$routeProvider.when('/alunos', {
+			templateUrl: 'partials/alunos.html',
+			controller: 'AlunosController'
+		});
+
+		$routeProvider.when('/aluno/:alunoId', {
+			templateUrl: 'partials/aluno.html',
+			controller: 'AlunoController'
+		});
+
+		$routeProvider.when('/aluno', {
+			templateUrl: 'partials/aluno.html',
+			controller: 'AlunoController'
+		});
+
 		// Autenticacao
 		$routeProvider.when('/auth', {
 			templateUrl: 'partials/auth.html'
 		});
 
 		// Rota defualt
-		$routeProvider.otherwise({redirectTo: '/contatos'});
+		$routeProvider.otherwise({redirectTo: '/home'});
 	
-});
+}]);
 
 // escopo global, pode ser acessado por outros scripts js
 // function testando() {

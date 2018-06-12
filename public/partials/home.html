@@ -4,24 +4,24 @@
 		Bem-vindo ao Ushaped
 	</h1>
 </div> -->
-<p ng-show="mensagem.texto">
+<!-- <p ng-show="mensagem.texto">
 	{{mensagem.texto}}
 </p>
-<!-- <button class="btn btn-primary" ng-click="incrementa()">
+ --><!-- <button class="btn btn-primary" ng-click="incrementa()">
 	Novo
 </button> -->
-<input ng-model="filtro" type="search" placeholder="parte do nome">
+<!-- <input ng-model="filtro" type="search" placeholder="parte do nome">
 <p ng-show="contatos.length">Contatos cadastrados: {{contatos.length}}</p>
 <p class="text-info" ng-hide="contatos.length">Não há contatos cadastrados</p>
 <meu-painel titulo="Listagem de contatos">
 	<div class="table-responsive">
-		<table class="table table-hover">
-			<tr>
+ -->		<table class="table table-hover">
+			<!--<tr>
 				<th>Nome</th>
 				<th>E-mail</th>
 				<th>Emergência</th>
 				<th class="text-center">Ação</th>
-			</tr>
+			</tr>-->
 			<!-- <tr>
 				<td>
 					<a>Contato</a>
@@ -33,23 +33,21 @@
 					</button>
 				</td>
 			</tr> -->
-			<tr ng-repeat="contato in contatos | filter: filtro">
+			<tr>
 				<td>
 					<!-- <a>{{contato.nome}}</a> -->
-					<a ng-href="#/contato/{{contato._id}}">{{contato.nome}}</a>
+					<a ng-href="#/contatos">Contatos</a>
 				</td>
-				<td>{{contato.email}}</td>
-				<td>{{contato.emergencia.nome}}</td>
-				<td class="text-center">
-					<!-- <button ng-click="remove(contato)" class="btn btn-warning">
-						Remover
-					</button> -->
-					<meu-botao-aviso nome="Remover" acao="remove(contato)">
-					</meu-botao-aviso>
+				<td>
+					<!-- <a>{{contato.nome}}</a> -->
+					<a ng-href="#/medidas">Medidas</a>
+				</td>
+				<td>
+					<!-- <a>{{contato.nome}}</a> -->
+					<a ng-href="#/alunos">Alunos</a>
 				</td>
 			</tr>
 		</table>
-		<a ng-href="#/contato" class="btn btn-primary">Novo</a>
-		<a ng-href="#/" class="btn">Voltar</a>
+<!-- 		<a ng-href="#/contato" class="btn btn-primary">Novo Contato</a>
 	</div>
-</meu-painel>
+</meu-painel> -->

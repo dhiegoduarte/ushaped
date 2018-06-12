@@ -4,11 +4,23 @@
 	{{mensagem.texto}}
 </p>
 <form ng-submit="salva()">
-	<div class="form-group">
-		<label for="nome">Nome completo</label>
-		<input type="text" class="form-control" id="nome"
-		name="nome" required ng-model="contato.nome">
+	<div class="form-row">
+		<div class="form-group col-12">
+			<label for="nome">Nome completo</label>
+			<input type="text" class="form-control" id="nome" name="nome" required ng-model="contato.nome">
+		</div>
 	</div>
+	
+
+
+
+
+
+
+
+
+
+
 	<div class="form-group">
 		<label for="email">Email</label>
 		<div class="input-group">
@@ -30,7 +42,7 @@
 			Salvar
 		</button>
 		<!-- <a meu-focus focus="btnBackFocus" href="#/" class="btn btn-default">Voltar</a> -->
-		<a meu-focus evento="contatoSalvo" href="#/" class="btn btn-default">Voltar</a>
+		<a meu-focus evento="contatoSalvo" href="#/contatos" class="btn btn-default">Voltar</a>
 		
 	</div>
 </form>

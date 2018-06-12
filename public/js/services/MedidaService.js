@@ -6,8 +6,8 @@ console.log('public/js/services/MedidaService.js', Date.now());
 // a função que o define.
 // serviço criado com factory deve retornar um objeto.
 angular.module('ushaped').factory('Medida',
-	function($resource) {
+	["$resource", function($resource) {
 		console.log("angular.module('ushaped').factory", Date.now());
 		// console.log('$resource',$resource);
 		return $resource('/medidas/:id');
-	});
+	}]);

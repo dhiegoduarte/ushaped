@@ -2,15 +2,11 @@
 console.log('public/js/controllers/ContatoController.js', Date.now());
 
 angular.module('ushaped').controller('ContatoController',
-	function($scope, $routeParams, Contato) {
-	// function($scope, $routeParams, $http, $resource) {
+	["$scope", "$routeParams", "Contato", function($scope, $routeParams, Contato) {
 
 		console.log("angular.module('ushaped').controller", Date.now());
 
-		// var Contato = $resource('/contatos/:id');
-		// console.log('Contato', Contato); 
-		// console.log('typeof Contato', typeof Contato); 
-
+		
 		if($routeParams.contatoId) {
 			console.log('$routeParams.contatoId. Vou chamar o /contatos/:id', Date.now());
 			Contato.get({id: $routeParams.contatoId},
@@ -35,7 +31,7 @@ angular.module('ushaped').controller('ContatoController',
 			// http://localhost/contatos os dados do contato. $resource não dá suporte a PUT. 
 			$scope.contato.$save()
 			.then(function() {
-				$scope.mensagem = {texto: 'Salvo com sucesso'};
+				$scope.mensagem = {texto: 'Salvo com sucesso!'};
 					// limpa o formulário
 					$scope.contato = new Contato();
 				})
@@ -49,8 +45,9 @@ angular.module('ushaped').controller('ContatoController',
 			$scope.$broadcast('contatoSalvo');
 		};
 
+		// Para popular o combo de contatos de emergencia
 		Contato.query(function(contatos) {
 			$scope.contatos = contatos;
 		});
 
-});
+}]);

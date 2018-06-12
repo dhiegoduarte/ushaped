@@ -1,8 +1,8 @@
-// test/e2e/contatosPageSpec.js
-var ContatosPage = new require('./pages/contatosPage');
+// test/e2e/alunosPageSpec.js
+var AlunosPage = new require('./pages/alunosPage');
 
 describe('Página principal', function() {
-	var pagina = new ContatosPage();
+	var pagina = new AlunosPage();
 
 	beforeEach(function() {
 		pagina.visitar();
@@ -16,8 +16,8 @@ describe('Página principal', function() {
 	// 	});
 	// });
 
-	it('Deve remover um contato da lista', function() {
-		console.log("Deve remover um contato da lista");
+	it('Deve remover um aluno da lista', function() {
+		console.log("Deve remover um aluno da lista");
 		var totalAntes = pagina.obterTotalDeItensDaLista();
 		pagina.removerPrimeiroItemDaLista();
 		var totalDepois = pagina.obterTotalDeItensDaLista();

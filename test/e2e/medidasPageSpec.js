@@ -1,8 +1,8 @@
-// test/e2e/contatosPageSpec.js
-var ContatosPage = new require('./pages/contatosPage');
+// test/e2e/medidasPageSpec.js
+var MedidasPage = new require('./pages/medidasPage');
 
 describe('Página principal', function() {
-	var pagina = new ContatosPage();
+	var pagina = new MedidasPage();
 
 	beforeEach(function() {
 		pagina.visitar();
@@ -16,12 +16,12 @@ describe('Página principal', function() {
 	// 	});
 	// });
 
-	it('Deve remover um contato da lista', function() {
-		console.log("Deve remover um contato da lista");
+	it('Deve remover um medida da lista', function() {
+		console.log("Deve remover um medida da lista");
 		var totalAntes = pagina.obterTotalDeItensDaLista();
 		pagina.removerPrimeiroItemDaLista();
 		var totalDepois = pagina.obterTotalDeItensDaLista();
 		expect(totalDepois).toBeLessThan(totalAntes);
 	});
 
-}); 
+}); 	

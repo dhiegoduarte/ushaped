@@ -16,29 +16,20 @@ exports.config = {
 
 	specs: ['../test/e2e/**/*.js'],
 
-// testes para tentar fazer funcionar. Atualizando o cromedriver solucionou o problema.
-	// seleniumAddress: "http://localhost:4444/wd/hub",
-// capabilities: {
-//     'browserName': 'chrome'
-//    },
-//    firefoxOnly: true,
-// baseUrl: 'http://localhost:3000/',
-// ///////////////////////////////
-
-
-onPrepare: function() {
-	browser.driver.get('http://localhost:3000').then(function() {
-		browser.driver.findElement(by.id('entrar')).click();
+// TODO DHIEGO
+// onPrepare: function() {
+// 	browser.driver.get('http://localhost:3000').then(function() {
+// 		browser.driver.findElement(by.id('entrar')).click();
 		
-			// precisa usar browser.driver pois a pagina testada nao possui angular
-			// browser.driver.findElement(by.id('login_field')).sendKeys('dhiegoduarte@gmail.com'); //TODO remover essas informacoes
-			// browser.driver.findElement(by.id('password')).sendKeys('grT-M7K-UMv-RcA'); //TODO remover essas informacoes
+// 			// precisa usar browser.driver pois a pagina testada nao possui angular
+// 			// browser.driver.findElement(by.id('login_field')).sendKeys('dhiegoduarte@gmail.com'); //TODO remover essas informacoes
+// 			// browser.driver.findElement(by.id('password')).sendKeys('grT-M7K-UMv-RcA'); //TODO remover essas informacoes
 
-			// utilizando o config.js
-			browser.driver.findElement(by.id('login_field')).sendKeys(config.seleniumUser);
-			browser.driver.findElement(by.id('password')).sendKeys(config.seleniumUserPassword);
+// 			// utilizando o config.js
+// 			browser.driver.findElement(by.id('login_field')).sendKeys(config.seleniumUser);
+// 			browser.driver.findElement(by.id('password')).sendKeys(config.seleniumUserPassword);
 			
-			browser.driver.findElement(by.name('commit')).click();
-		});
-}
+// 			browser.driver.findElement(by.name('commit')).click();
+// 		});
+// }
 };

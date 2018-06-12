@@ -2,14 +2,9 @@
 console.log('public/js/controllers/MedidaController.js', Date.now());
 
 angular.module('ushaped').controller('MedidaController',
-	function($scope, $routeParams, Medida) {
-	// function($scope, $routeParams, $http, $resource) {
-
+	["$scope", "$routeParams", "Medida", function($scope, $routeParams, Medida) {
+	
 		console.log("angular.module('ushaped').controller", Date.now());
-
-		// var Medida = $resource('/contatos/:id');
-		// console.log('Medida', Medida); 
-		// console.log('typeof Medida', typeof Medida); 
 
 		if($routeParams.medidaId) {
 			console.log('$routeParams.medidaId. Vou chamar o /medidas/:id', Date.now());
@@ -35,7 +30,7 @@ angular.module('ushaped').controller('MedidaController',
 			// http://localhost/medidas os dados do medida. $resource não dá suporte a PUT. 
 			$scope.medida.$save()
 			.then(function() {
-				$scope.mensagem = {texto: 'Salvo com sucesso'};
+				$scope.mensagem = {texto: 'Salvo com sucesso!'};
 					// limpa o formulário
 					$scope.medida = new Medida();
 				})
@@ -53,4 +48,4 @@ angular.module('ushaped').controller('MedidaController',
 			$scope.medidas = medidas;
 		});
 
-});
+}]);

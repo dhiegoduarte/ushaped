@@ -19,6 +19,7 @@ module.exports = function(app) {
 	// app.get('/contatos/:id', controller.obtemContato);
 	// app.delete('/contatos/:id', controller.removeContato);
 
+	// TODO DHIEGO
 	// Sem autenticacao
 	app.route('/contatos')
 	.get(controller.listaContatos)
