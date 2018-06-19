@@ -44,8 +44,5 @@ angular.module('ushaped').controller('MedidaController',
 			$scope.$broadcast('medidaSalvo');
 		};
 
-		Medida.query(function(medidas) {
-			$scope.medidas = medidas;
-		});
 
 }]);

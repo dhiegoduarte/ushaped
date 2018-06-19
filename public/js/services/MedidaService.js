@@ -1,4 +1,4 @@
-// public/js/services/ContatoService.js
+// public/js/services/MedidaService.js
 console.log('public/js/services/MedidaService.js', Date.now());
 
 // Utilizando a instância de nosso módulo principal, utilizamos a função
@@ -7,7 +7,7 @@ console.log('public/js/services/MedidaService.js', Date.now());
 // serviço criado com factory deve retornar um objeto.
 angular.module('ushaped').factory('Medida',
 	["$resource", function($resource) {
-		console.log("angular.module('ushaped').factory", Date.now());
+		console.log("angular.module('ushaped').factory('Medida'", Date.now());
 		// console.log('$resource',$resource);
 		return $resource('/medidas/:id');
 	}]);

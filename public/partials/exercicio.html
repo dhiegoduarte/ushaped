@@ -1,0 +1,20 @@
+<!-- public/exercicio.html -->
+<h1 class="text-center">Exercicio</h1>
+<p ng-show="mensagem.texto">
+	{{mensagem.texto}}
+</p>
+<form ng-submit="salva()">
+	<div class="form-group">
+		<label for="nome">Exercicio</label>
+		<input type="text" class="form-control" id="nome"
+		name="nome" required ng-model="exercicio.nome">
+	</div>
+	<div>
+		<button type="submit" class="btn btn-primary">
+			Salvar
+		</button>
+		<a meu-focus evento="exercicioSalvo" href="#/exercicios" class="btn btn-default">Voltar</a>
+		
+	</div>
+</form>
+

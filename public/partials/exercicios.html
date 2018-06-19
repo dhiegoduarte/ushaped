@@ -1,0 +1,33 @@
+<!-- public/partials/exercicios.html -->
+<!-- <div class="jumbotron">
+	<h1 class="text-center">
+		Bem-vindo ao Ushaped
+	</h1>
+</div> -->
+<p ng-show="mensagem.texto">
+	{{mensagem.texto}}
+</p>
+<input ng-model="filtro" type="search" placeholder="parte do nome">
+<p ng-show="exercicios.length">Exercicios cadastrados: {{exercicios.length}}</p>
+<p class="text-info" ng-hide="exercicios.length">Não há exercicios cadastrados</p>
+<meu-painel titulo="Listagem de exercicios">
+	<div class="table-responsive">
+		<table class="table table-hover">
+			<tr>
+				<th>Exercicio</th>
+				<th class="text-center">Ação</th>
+			</tr>
+			<tr ng-repeat="exercicio in exercicios | filter: filtro">
+				<td>
+					<a ng-href="#/exercicio/{{exercicio._id}}">{{exercicio.nome}}</a>
+				</td>
+				<td class="text-center">
+					<meu-botao-aviso nome="Remover" acao="remove(exercicio)">
+					</meu-botao-aviso>
+				</td>
+			</tr>
+		</table>
+		<a ng-href="#/exercicio" class="btn btn-primary">Nova</a>
+		<a ng-href="#/" class="btn">Voltar</a>
+	</div>
+</meu-painel>

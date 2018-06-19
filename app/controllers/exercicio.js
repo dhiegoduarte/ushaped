@@ -1,21 +1,21 @@
-// app/controllers/medida.js
-console.log('app/controllers/medida.js', Date.now());
+// app/controllers/exercicio.js
+console.log('app/controllers/exercicio.js', Date.now());
 
 var sanitize = require('mongo-sanitize');
 
 // Codigo comentado acima antes de usar o model com mongoose
 module.exports = function (app) {
 	
-	var Medida = app.models.medida;
+	var Exercicio = app.models.exercicio;
 
 	var controller = {};
 	
-	controller.listaMedidas = function(req, res) {
-		console.log("controller.listaMedidas");
-		Medida.find().exec()
+	controller.listaExercicios = function(req, res) {
+		console.log("controller.listaExercicios");
+		Exercicio.find().exec()
 		.then(
-			function(medidas) {
-				res.json(medidas);
+			function(exercicios) {
+				res.json(exercicios);
 			},
 			function(erro) {
 				console.error(erro);
@@ -24,13 +24,13 @@ module.exports = function (app) {
 			);
 	};
 	
-	controller.obtemMedida = function(req, res) {
-		console.log("controller.obtemMedida");
+	controller.obtemExercicio = function(req, res) {
+		console.log("controller.obtemExercicio");
 		var _id = req.params.id;
-		Medida.findById(_id).exec()
-		.then(function(medida) {
-			if (!medida) throw new Error("Medida não encontrado");
-			res.json(medida) ;
+		Exercicio.findById(_id).exec()
+		.then(function(exercicio) {
+			if (!exercicio) throw new Error("Exercicio não encontrado");
+			res.json(exercicio) ;
 		},
 		function(erro) {
 			console.log(erro);
@@ -39,14 +39,14 @@ module.exports = function (app) {
 		);
 	};
 	
-	controller.removeMedida = function(req, res) {
-		console.log("controller.removeMedida");
+	controller.removeExercicio = function(req, res) {
+		console.log("controller.removeExercicio");
 		// var _id = req.params.id;
 		// sanitizando requisicao com o mongo-sanitize para evitar query selector injection
 		var _id = sanitize(req.params.id);
-		// Um Model criado pelo Mongoose possui a função findByIdAndRemove que remove e passa para o callback o medida
+		// Um Model criado pelo Mongoose possui a função findByIdAndRemove que remove e passa para o callback o exercicio
 		// removido. Em nosso caso, não temos interesse no documento removido; é por isso que a função remove foi utilizada.
-		Medida.remove({"_id" : _id}).exec()
+		Exercicio.remove({"_id" : _id}).exec()
 		.then(
 			function() {
 				res.status(204).end();
@@ -57,8 +57,8 @@ module.exports = function (app) {
 			);
 	};
 	
-	controller.salvaMedida = function(req, res) {
-		console.log("controller.salvaMedida");
+	controller.salvaExercicio = function(req, res) {
+		console.log("controller.salvaExercicio");
 		var _id = req.body._id;
 		/*
 		Independente da quantidade de parâmetros,
@@ -74,11 +74,11 @@ module.exports = function (app) {
 		// req.body.emergencia = req.body.emergencia || null;
 
 		if(_id) {
-			Medida.findByIdAndUpdate(_id, req.body).exec()
-			// Medida.findByIdAndUpdate(_id, dados).exec()
+			Exercicio.findByIdAndUpdate(_id, req.body).exec()
+			// Exercicio.findByIdAndUpdate(_id, dados).exec()
 			.then(
-				function(medida) {
-					res.json(medida);
+				function(exercicio) {
+					res.json(exercicio);
 				},
 				function(erro) {
 					console.error(erro);
@@ -86,10 +86,10 @@ module.exports = function (app) {
 				}
 				);
 		} else {
-			Medida.create(req.body)
+			Exercicio.create(req.body)
 			.then(
-				function(medida) {
-					res.status(201).json(medida);
+				function(exercicio) {
+					res.status(201).json(exercicio);
 				},
 				function(erro) {
 					console.log(erro);

@@ -59,6 +59,21 @@ angular.module('ushaped', ['ngRoute','ngResource','meusComponentes'])
 			controller: 'AlunoController'
 		});
 
+		$routeProvider.when('/exercicios', {
+			templateUrl: 'partials/exercicios.html',
+			controller: 'ExerciciosController'
+		});
+
+		$routeProvider.when('/exercicio/:exercicioId', {
+			templateUrl: 'partials/exercicio.html',
+			controller: 'ExercicioController'
+		});
+
+		$routeProvider.when('/exercicio', {
+			templateUrl: 'partials/exercicio.html',
+			controller: 'ExercicioController'
+		});
+
 		// Autenticacao
 		$routeProvider.when('/auth', {
 			templateUrl: 'partials/auth.html'

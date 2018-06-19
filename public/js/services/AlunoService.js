@@ -7,7 +7,7 @@ console.log('public/js/services/AlunoService.js', Date.now());
 // serviço criado com factory deve retornar um objeto.
 angular.module('ushaped').factory('Aluno',
 	["$resource", function($resource) {
-		console.log("angular.module('ushaped').factory", Date.now());
+		console.log("angular.module('ushaped').factory('Aluno'", Date.now());
 		// console.log('$resource',$resource);
 		return $resource('/alunos/:id');
 	}]);
