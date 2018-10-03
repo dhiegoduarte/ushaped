@@ -17,7 +17,7 @@
 				<th>Exercicio</th>
 				<th class="text-center">Ação</th>
 			</tr>
-			<tr ng-repeat="exercicio in exercicios | filter: filtro">
+			<tr ng-repeat="exercicio in exercicios | filter: filtro | orderBy:'nome'">
 				<td>
 					<a ng-href="#/exercicio/{{exercicio._id}}">{{exercicio.nome}}</a>
 				</td>

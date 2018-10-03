@@ -1,6 +1,5 @@
 // public/js/controllers/ExerciciosController.js
 console.log('public/js/controllers/ExerciciosController.js', Date.now());
-// testando();
 
 angular.module('ushaped').controller('ExerciciosController',
 	["$scope", "$routeParams", "Exercicio", function($scope, $routeParams, Exercicio) {

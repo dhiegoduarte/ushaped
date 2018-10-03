@@ -1,6 +1,5 @@
 // public/js/controllers/MedidasController.js
 console.log('public/js/controllers/MedidasController.js', Date.now());
-// testando();
 
 angular.module('ushaped').controller('MedidasController',
 	["$scope", "$routeParams", "Medida", function($scope, $routeParams, Medida) {

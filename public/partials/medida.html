@@ -4,17 +4,17 @@
 	{{mensagem.texto}}
 </p>
 <form ng-submit="salva()">
-	<div class="form-group">
-		<label for="nome">Medida</label>
-		<input type="text" class="form-control" id="nome"
-		name="nome" required ng-model="medida.nome">
+	<div class="form-row">
+		<div class="form-group col-12">
+			<label for="nome">Medida</label>
+			<input type="text" class="form-control" id="nome" name="nome" required ng-model="medida.nome">
+		</div>
 	</div>
 	<div>
 		<button type="submit" class="btn btn-primary">
 			Salvar
 		</button>
 		<a meu-focus evento="medidaSalvo" href="#/medidas" class="btn btn-default">Voltar</a>
-		
 	</div>
 </form>
 

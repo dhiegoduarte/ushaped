@@ -1,0 +1,20 @@
+<!-- public/serie.html -->
+<h1 class="text-center">Serie</h1>
+<p ng-show="mensagem.texto">
+	{{mensagem.texto}}
+</p>
+<form ng-submit="salva()">
+	<div class="form-row">
+		<div class="form-group col-12">
+			<label for="nome">Serie</label>
+			<input type="text" class="form-control" id="nome" name="nome" required ng-model="serie.nome">
+		</div>
+	</div>
+	<div>
+		<button type="submit" class="btn btn-primary">
+			Salvar
+		</button>
+		<a meu-focus evento="serieSalvo" href="#/series" class="btn btn-default">Voltar</a>
+	</div>
+</form>
+

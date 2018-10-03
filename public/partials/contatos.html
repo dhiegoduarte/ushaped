@@ -33,7 +33,7 @@
 					</button>
 				</td>
 			</tr> -->
-			<tr ng-repeat="contato in contatos | filter: filtro">
+			<tr ng-repeat="contato in contatos | filter: filtro | orderBy:'nome'">
 				<td>
 					<!-- <a>{{contato.nome}}</a> -->
 					<a ng-href="#/contato/{{contato._id}}">{{contato.nome}}</a>

@@ -74,6 +74,21 @@ angular.module('ushaped', ['ngRoute','ngResource','meusComponentes'])
 			controller: 'ExercicioController'
 		});
 
+		$routeProvider.when('/series', {
+			templateUrl: 'partials/series.html',
+			controller: 'SeriesController'
+		});
+
+		$routeProvider.when('/serie/:serieId', {
+			templateUrl: 'partials/serie.html',
+			controller: 'SerieController'
+		});
+
+		$routeProvider.when('/serie', {
+			templateUrl: 'partials/serie.html',
+			controller: 'SerieController'
+		});
+
 		// Autenticacao
 		$routeProvider.when('/auth', {
 			templateUrl: 'partials/auth.html'

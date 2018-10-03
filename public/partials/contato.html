@@ -10,40 +10,27 @@
 			<input type="text" class="form-control" id="nome" name="nome" required ng-model="contato.nome">
 		</div>
 	</div>
-	
-
-
-
-
-
-
-
-
-
-
-	<div class="form-group">
-		<label for="email">Email</label>
-		<div class="input-group">
-			<span class="input-group-addon">@</span>
-			<input type="email" class="form-control" id="email"
-			placeholder="email@exemplo.com" name="email"
-			ng-model="contato.email" required>
+	<div class="form-row">
+		<div class="form-group col-12">
+			<label for="email">Email</label>
+			<div class="input-group">
+				<span class="input-group-text">@</span>
+				<input type="email" class="form-control" id="email" placeholder="email@exemplo.com" name="email" ng-model="contato.email" required>
+			</div>
 		</div>
 	</div>
-	<div class="form-group">
-		<label for="emergencia">Emergência</label>
-		<select id="emergencia" class="form-control" 
-		ng-model="contato.emergencia" 
-		ng-options="contato._id as contato.nome for contato in contatos">
-	</select>
-</div>
+	<div class="form-row">
+		<div class="form-group col-12">
+			<label for="emergencia">Emergência</label>
+			<select id="emergencia" class="form-control" ng-model="contato.emergencia" ng-options="contato._id as contato.nome for contato in contatos" />
+		</div>
+	</div>
 	<div>
 		<button type="submit" class="btn btn-primary">
 			Salvar
 		</button>
 		<!-- <a meu-focus focus="btnBackFocus" href="#/" class="btn btn-default">Voltar</a> -->
 		<a meu-focus evento="contatoSalvo" href="#/contatos" class="btn btn-default">Voltar</a>
-		
 	</div>
 </form>
 
