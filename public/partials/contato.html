@@ -19,12 +19,14 @@
 			</div>
 		</div>
 	</div>
+	
 	<div class="form-row">
 		<div class="form-group col-12">
 			<label for="emergencia">Emergência</label>
-			<select id="emergencia" class="form-control" ng-model="contato.emergencia" ng-options="contato._id as contato.nome for contato in contatos" />
+			<select id="emergencia" class="form-control" ng-model="contato.emergencia" ng-options="contato._id as contato.nome for contato in contatos" ></select>
 		</div>
 	</div>
+
 	<div>
 		<button type="submit" class="btn btn-primary">
 			Salvar

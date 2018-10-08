@@ -2,7 +2,7 @@
 console.log('public/js/controllers/SerieController.js', Date.now());
 
 angular.module('ushaped').controller('SerieController',
-	["$scope", "$routeParams", "Serie", function($scope, $routeParams, Serie) {
+	["$scope", "$routeParams", "Serie", "Exercicio", function($scope, $routeParams, Serie, Exercicio) {
 	
 		console.log("angular.module('ushaped').controller", Date.now());
 
@@ -44,5 +44,9 @@ angular.module('ushaped').controller('SerieController',
 			$scope.$broadcast('serieSalvo');
 		};
 
+		// Para popular o combo de exercicios
+		Exercicio.query(function(exercicios) {
+			$scope.exercicios = exercicios;
+		});
 
 }]);

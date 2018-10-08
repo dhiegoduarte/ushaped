@@ -6,6 +6,17 @@ var mongoose = require('mongoose');
 module.exports = function() {
 	// console.log('module.exports', Date.now());
 	
+	var schemaExercicios = mongoose.Schema({
+		exercicio: {
+			type: mongoose.Schema.ObjectId,
+			ref: 'Exercicio'
+		},
+		quantidade: {
+			type: String,
+			required: true
+		}
+	});
+
 	var schema = mongoose.Schema({
 		// Existem outros tipos como Number, Date, Boolean e Array,
 		nome: {
@@ -15,18 +26,8 @@ module.exports = function() {
 				unique: true
 			}
 		}
-		// ,
-		// email: {
-		// 	type: String,
-		// 	required: true,
-		// 	index: {
-		// 		unique: true
-		// 	}
-		// },
-		// emergencia: {
-		// 	type: mongoose.Schema.ObjectId,
-		// 	ref: 'Contato'
-		// }
+		,
+		exercicios: [schemaExercicios]
 	});
 
 	// Um Model é um objeto que corresponde a uma collection de nosso
