@@ -21,6 +21,7 @@ module.exports = function() {
 		},
 		emergencia: {
 			type: mongoose.Schema.ObjectId,
+			// Qualquer modelo criado no projeto
 			ref: 'Contato'
 		}
 	});

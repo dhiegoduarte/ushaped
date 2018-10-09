@@ -2,7 +2,8 @@
 console.log('public/js/controllers/SerieController.js', Date.now());
 
 angular.module('ushaped').controller('SerieController',
-	["$scope", "$routeParams", "Serie", "Exercicio", function($scope, $routeParams, Serie, Exercicio) {
+	["$scope", "$routeParams", "Serie", "Exercicio", "Medida", 
+		function($scope, $routeParams, Serie, Exercicio, Medida) {
 	
 		console.log("angular.module('ushaped').controller", Date.now());
 
@@ -47,6 +48,11 @@ angular.module('ushaped').controller('SerieController',
 		// Para popular o combo de exercicios
 		Exercicio.query(function(exercicios) {
 			$scope.exercicios = exercicios;
+		});
+
+		// Para popular o combo de mediadas
+		Medida.query(function(medidas) {
+			$scope.medidas = medidas;
 		});
 
 }]);

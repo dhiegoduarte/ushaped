@@ -14,6 +14,10 @@ module.exports = function() {
 		quantidade: {
 			type: String,
 			required: true
+		},
+		medida: {
+			type: mongoose.Schema.ObjectId,
+			ref: 'Medida'
 		}
 	});
 
@@ -27,7 +31,19 @@ module.exports = function() {
 			}
 		}
 		,
-		exercicios: [schemaExercicios]
+		exercicios: schemaExercicios
+		// exercicio: {
+		// 	type: mongoose.Schema.ObjectId,
+		// 	ref: 'Exercicio'
+		// },
+		// quantidade: {
+		// 	type: String,
+		// 	required: true
+		// },
+		// medida: {
+		// 	type: mongoose.Schema.ObjectId,
+		// 	ref: 'Medida'
+		// }
 	});
 
 	// Um Model é um objeto que corresponde a uma collection de nosso
