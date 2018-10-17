@@ -15,33 +15,40 @@ angular.module('ushaped').controller('SerieController',
 				function(serie) {
 					$scope.serie = serie;
 					
-					// buscando detalhes do exercicio
-					console.log('$routeParams.exercicioId. Vou chamar o /exercicios/:id', Date.now());
-					Exercicio.get({id: $scope.serie.exercicios[0].exercicio},
-						function(exercicio) {
-							$scope.exercicioTeste= exercicio;
-						},
-						function(erro) {
-							$scope.mensagem = {
-								texto: 'Não foi possível obter o exercicio.'
-							};
-							console.log(erro);
-						}
-					);
+					//loop na lista de exercicios					
+					serie.exercicios.forEach(function(elemento){
+						console.log("elemento:", elemento);
+					
 
-					// buscando detalhes do exercicio
-					console.log('$routeParams.exercicioId. Vou chamar o /medidas/:id', Date.now());
-					Medida.get({id: $scope.serie.exercicios[0].medida},
-						function(medida) {
-							$scope.medidaTeste= medida;
-						},
-						function(erro) {
-							$scope.mensagem = {
-								texto: 'Não foi possível obter a medida.'
-							};
-							console.log(erro);
-						}
-					);	
+
+						// buscando detalhes do exercicio
+						console.log('$routeParams.exercicioId. Vou chamar o /exercicios/:id', Date.now());
+						Exercicio.get({id: elemento.exercicio},
+							function(exercicio) {
+								$scope.exercicioTeste= exercicio;
+							},
+							function(erro) {
+								$scope.mensagem = {
+									texto: 'Não foi possível obter o exercicio.'
+								};
+								console.log(erro);
+							}
+						);
+
+						// buscando detalhes do exercicio
+						console.log('$routeParams.exercicioId. Vou chamar o /medidas/:id', Date.now());
+						Medida.get({id: elemento.medida},
+							function(medida) {
+								$scope.medidaTeste= medida;
+							},
+							function(erro) {
+								$scope.mensagem = {
+									texto: 'Não foi possível obter a medida.'
+								};
+								console.log(erro);
+							}
+						);	
+					});
 
 
 
