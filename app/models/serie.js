@@ -31,7 +31,7 @@ module.exports = function() {
 			}
 		}
 		,
-		exercicios: schemaExercicios
+		exercicios: [schemaExercicios]
 		// exercicio: {
 		// 	type: mongoose.Schema.ObjectId,
 		// 	ref: 'Exercicio'

@@ -3,7 +3,7 @@
 <p ng-show="mensagem.texto">
 	{{mensagem.texto}}
 </p>
-<form ng-submit="salva()">
+<!-- <form ng-submit="salva()">
 	<div class="form-row">
 		<div class="form-group col-12">
 			<label for="nome">Serie</label>
@@ -13,17 +13,67 @@
 	  <div class="form-row">
 	    <div class="form-group col-md-6">
 	      <label for="exercicios">Exercicio</label>
-		  <select id="exercicio" class="form-control" ng-model="serie.exercicios.exercicio" ng-options="exercicio._id as exercicio.nome for exercicio in exercicios"></select>
+		  <select id="exercicio" class="form-control" ng-model="serie.exercicios[0].exercicio" ng-options="exercicio._id as exercicio.nome for exercicio in exercicios"></select>
 	    </div>
 	    <div class="form-group col-md">
 	      <label for="quantidade">Quantidade</label>
-	      <input type="text" class="form-control" id="quantidade" name="quantidade" required ng-model="serie.exercicios.quantidade">
+	      <input type="text" class="form-control" id="quantidade" name="quantidade" required ng-model="serie.exercicios[0].quantidade">
 	    </div>
 		<div class="form-group col-md">
 	      <label for="medida">Medida</label>
-	      <select id="medida" class="form-control" ng-model="serie.exercicios.medida" ng-options="medida._id as medida.nome for medida in medidas"></select>
+	      <select id="medida" class="form-control" ng-model="serie.exercicios[0].medida" ng-options="medida._id as medida.nome for medida in medidas"></select>
 	    </div>
+	</div> -->
+
+
+
+
+
+<form ng-submit="salva()">
+	<div class="form-row">
+		<div class="form-group col-12">
+			<label for="nome">Serie</label>
+			<input type="text" class="form-control" id="nome" name="nome" required ng-model="serie.nome">
+		</div>
 	</div>
+
+<meu-painel titulo="Listagem de exercicios">
+	<div class="table-responsive">
+		<table class="table table-hover">
+			<tr>
+				<th>Exercicio</th>
+				<th>Quantidade</th>
+				<th>Medida</th>
+				<th class="text-center">Ação</th>
+			</tr>
+			<tr ng-repeat="exercicio in serie.exercicios | filter: filtro | orderBy:'nome'">
+				<td>
+					<!-- {{exercicio.exercicio}} -->
+					{{exercicioTeste.nome}}
+				</td>
+				<td>
+					{{exercicio.quantidade}}
+				</td>
+				<td>
+					<!-- {{exercicio.medida}} -->
+					{{medidaTeste.nome}}
+				</td>
+				<td class="text-center">
+					<meu-botao-aviso nome="Remover" acao="remove(serie)">
+					</meu-botao-aviso>
+				</td>
+			</tr>
+		</table>
+		
+	</div>
+</meu-painel>
+
+
+
+
+
+
+
     <div>
 		<button type="submit" class="btn btn-primary">
 			Salvar

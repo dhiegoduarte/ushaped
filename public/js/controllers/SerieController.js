@@ -1,6 +1,8 @@
 // public/js/controllers/SerieController.js
 console.log('public/js/controllers/SerieController.js', Date.now());
 
+var serieTeste;
+
 angular.module('ushaped').controller('SerieController',
 	["$scope", "$routeParams", "Serie", "Exercicio", "Medida", 
 		function($scope, $routeParams, Serie, Exercicio, Medida) {
@@ -11,8 +13,39 @@ angular.module('ushaped').controller('SerieController',
 			console.log('$routeParams.serieId. Vou chamar o /series/:id', Date.now());
 			Serie.get({id: $routeParams.serieId},
 				function(serie) {
-					// console.log('serie', serie); 
 					$scope.serie = serie;
+					
+					// buscando detalhes do exercicio
+					console.log('$routeParams.exercicioId. Vou chamar o /exercicios/:id', Date.now());
+					Exercicio.get({id: $scope.serie.exercicios[0].exercicio},
+						function(exercicio) {
+							$scope.exercicioTeste= exercicio;
+						},
+						function(erro) {
+							$scope.mensagem = {
+								texto: 'Não foi possível obter o exercicio.'
+							};
+							console.log(erro);
+						}
+					);
+
+					// buscando detalhes do exercicio
+					console.log('$routeParams.exercicioId. Vou chamar o /medidas/:id', Date.now());
+					Medida.get({id: $scope.serie.exercicios[0].medida},
+						function(medida) {
+							$scope.medidaTeste= medida;
+						},
+						function(erro) {
+							$scope.mensagem = {
+								texto: 'Não foi possível obter a medida.'
+							};
+							console.log(erro);
+						}
+					);	
+
+
+
+
 				},
 				function(erro) {
 					$scope.mensagem = {
@@ -21,6 +54,13 @@ angular.module('ushaped').controller('SerieController',
 					console.log(erro);
 				}
 			);
+
+
+			
+
+
+
+
 		} else {
 			$scope.serie = new Serie();
 		}
