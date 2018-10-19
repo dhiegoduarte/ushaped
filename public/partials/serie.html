@@ -10,23 +10,39 @@
 			<input type="text" class="form-control" id="nome" name="nome" required ng-model="serie.nome">
 		</div>
 	</div>
-	  <div class="form-row">
+	  
+
+<meu-painel titulo="Adicionar exercicio">
+	<div class="table-responsive">
+		<div class="form-row">
 	    <div class="form-group col-md-6">
 	      <label for="exercicios">Exercicio</label>
-		  <select id="exercicio" class="form-control" ng-model="serie.exercicios[0].exercicio" ng-options="exercicio._id as exercicio.nome for exercicio in exercicios"></select>
+		  <select id="exercicio" class="form-control" required ng-model="elemento.exercicio" ng-options="exercicio._id as exercicio.nome for exercicio in exercicios"></select>
 	    </div>
 	    <div class="form-group col-md">
 	      <label for="quantidade">Quantidade</label>
-	      <input type="text" class="form-control" id="quantidade" name="quantidade" required ng-model="serie.exercicios[0].quantidade">
+	      <input type="text" class="form-control" id="quantidade" name="quantidade" ng-model="elemento.quantidade">
 	    </div>
 		<div class="form-group col-md">
 	      <label for="medida">Medida</label>
-	      <select id="medida" class="form-control" ng-model="serie.exercicios[0].medida" ng-options="medida._id as medida.nome for medida in medidas"></select>
+	      <select id="medida" class="form-control" ng-model="elemento.medida" ng-options="medida._id as medida.nome for medida in medidas"></select>
 	    </div>
 	</div>
+ <div>
+		<!-- <a href="addExercicio()" class="btn btn-default">Adicionar</a> -->
+		<!-- <meu-botao-aviso nome="Adicionar" acao="addExercicio(elemento)"></meu-botao-aviso> -->
+		<button type="button" class="btn btn-primary" ng-click="addExercicio(elemento)">
+			Adicionar
+		</button>
+	</div>
 
-
-
+<!-- '<button ng-click="acao()" class="btn btn-warning">'
+			+ '{{nome}}'
+		+ '</button>'; -->
+		
+		
+	</div>
+</meu-painel>
 
 
 
@@ -40,22 +56,27 @@
 				<th>Medida</th>
 				<th class="text-center">Ação</th>
 			</tr>
-			<tr ng-repeat="exercicio in serie.exercicios | filter: filtro | orderBy:'nome'">
+
+
+			<tr ng-repeat="elemento in exerciciosArray track by $index | orderBy:'nome'">
+			<!-- <tr ng-repeat="exercicio in serie.exercicios | filter: filtro | orderBy:'nome'"> -->
 				<td>
-					{{exercicio.exercicio.nome}} 
+					{{elemento.exercicio.nome}} 
 					<!-- {{exercicioTeste.nome}} -->
 				</td>
 				<td>
-					{{exercicio.quantidade}}
+					{{elemento.quantidade}}
 				</td>
 				<td>
 					<!-- {{exercicio.medida}} -->
 					<!-- {{serie.exercicios[0].medida.nome}} -->
-					{{exercicio.medida.nome}}
+					{{elemento.medida.nome}}
 				</td>
 				<td class="text-center">
-					<meu-botao-aviso nome="Remover" acao="remove(serie)">
-					</meu-botao-aviso>
+					<!-- <meu-botao-aviso nome="Remover" acao="remove(elemento)"></meu-botao-aviso> -->
+					<button type="button" class="btn btn-warning" ng-click="remove(elemento)">
+			Remover
+		</button>
 				</td>
 			</tr>
 		</table>

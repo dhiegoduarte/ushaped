@@ -1,7 +1,7 @@
 // public/js/controllers/SerieController.js
 console.log('public/js/controllers/SerieController.js', Date.now());
 
-var serieTeste;
+// var serieTeste;
 
 angular.module('ushaped').controller('SerieController',
 	["$scope", "$routeParams", "Serie", "Exercicio", "Medida", 
@@ -9,12 +9,26 @@ angular.module('ushaped').controller('SerieController',
 	
 		console.log("angular.module('ushaped').controller", Date.now());
 
+		// $scope.exercicioAdd = '';
+		// $scope.medidaAdd = '';
+		// $scope.quantidadeAdd = '';
+		// $scope.elemento = '';
+
+		var exerciciosArray = [];
+		
+
+
+		// console.log($scope.exercicioAdd);
+
+		// 	console.log($scope.medidaAdd);
+
 		if($routeParams.serieId) {
 			console.log('$routeParams.serieId. Vou chamar o /series/:id', Date.now());
 			Serie.get({id: $routeParams.serieId},
 				function(serie) {
 					$scope.serie = serie;
-					
+					$scope.exerciciosArray = serie.exercicios;
+					exerciciosArray = serie.exercicios;
 					//loop na lista de exercicios					
 					// serie.exercicios.forEach(function(elemento){
 					// 	console.log("elemento:", elemento);
@@ -70,8 +84,12 @@ angular.module('ushaped').controller('SerieController',
 
 		} else {
 			$scope.serie = new Serie();
+			$scope.exerciciosArray = [];
 			
-			// Para popular o combo de exercicios
+			
+		}
+
+		// Para popular o combo de exercicios
 			Exercicio.query(function(exercicios) {
 				$scope.exercicios = exercicios;
 			});
@@ -80,7 +98,6 @@ angular.module('ushaped').controller('SerieController',
 			Medida.query(function(medidas) {
 				$scope.medidas = medidas;
 			});
-		}
 
 		$scope.salva = function() {
 			console.log('$scope.salva.', Date.now());
@@ -102,6 +119,28 @@ angular.module('ushaped').controller('SerieController',
 			$scope.$broadcast('serieSalvo');
 		};
 
+		$scope.remove = function(elemento) {
+			// console.log('$scope.remove. Vou chamar o /series/:id', Date.now());
+			// Serie.delete({id: serie._id},
+			// 	buscaSeries,
+			// 	function(erro) {
+			// 		$scope.mensagem = {texto: 'Não foi possível remover o serie'};
+			// 		console.log(erro);
+			// 	}
+			// );
+			exerciciosArray.pop(elemento);
+			$scope.exerciciosArray = exerciciosArray;
+			$scope.serie.exercicios = exerciciosArray;
+		};
+
+
+		
+		$scope.addExercicio = function(elemento) {
+			exerciciosArray.push(elemento);
+ 			$scope.exerciciosArray = exerciciosArray;
+			console.log("exerciciosArray",exerciciosArray);
+			$scope.serie.exercicios = exerciciosArray;
+		};
 
 
 }]);
