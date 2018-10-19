@@ -12,83 +12,58 @@
 	</div>
 	  
 
-<meu-painel titulo="Adicionar exercicio">
-	<div class="table-responsive">
-		<div class="form-row">
-	    <div class="form-group col-md-6">
-	      <label for="exercicios">Exercicio</label>
-		  <select id="exercicio" class="form-control" required ng-model="elemento.exercicio" ng-options="exercicio._id as exercicio.nome for exercicio in exercicios"></select>
-	    </div>
-	    <div class="form-group col-md">
-	      <label for="quantidade">Quantidade</label>
-	      <input type="text" class="form-control" id="quantidade" name="quantidade" ng-model="elemento.quantidade">
-	    </div>
-		<div class="form-group col-md">
-	      <label for="medida">Medida</label>
-	      <select id="medida" class="form-control" ng-model="elemento.medida" ng-options="medida._id as medida.nome for medida in medidas"></select>
-	    </div>
-	</div>
- <div>
-		<!-- <a href="addExercicio()" class="btn btn-default">Adicionar</a> -->
-		<!-- <meu-botao-aviso nome="Adicionar" acao="addExercicio(elemento)"></meu-botao-aviso> -->
-		<button type="button" class="btn btn-primary" ng-click="addExercicio(elemento)">
-			Adicionar
-		</button>
-	</div>
+	<meu-painel titulo="Adicionar exercicio">
+		<div class="table-responsive">
+			<div class="form-row">
+			    <div class="form-group col-md-6">
+			      <label for="exercicios">Exercicio</label>
+				  <select id="exercicio" class="form-control" required ng-model="elemento.exercicio" ng-options="exercicio._id as exercicio.nome for exercicio in exercicios"></select>
+			    </div>
+			    <div class="form-group col-md">
+			      <label for="quantidade">Quantidade</label>
+			      <input type="text" class="form-control" id="quantidade" name="quantidade" ng-model="elemento.quantidade">
+			    </div>
+				<div class="form-group col-md">
+			      <label for="medida">Medida</label>
+			      <select id="medida" class="form-control" ng-model="elemento.medida" ng-options="medida._id as medida.nome for medida in medidas"></select>
+			    </div>
+			    <div class="form-group col-md">
+			      <button type="button" class="btn btn-primary" ng-click="addExercicio(elemento)">
+					Adicionar
+				  </button>
+			    </div>
+			</div>
+		</div>
+	</meu-painel>
 
-<!-- '<button ng-click="acao()" class="btn btn-warning">'
-			+ '{{nome}}'
-		+ '</button>'; -->
-		
-		
-	</div>
-</meu-painel>
+	<meu-painel titulo="Listagem de exercicios">
+		<div class="table-responsive">
+			<table class="table table-hover">
+				<tr>
+					<th>Exercicio</th>
+					<th>Quantidade</th>
+					<th>Medida</th>
+					<th class="text-center">Ação</th>
+				</tr>
 
-
-
-
-<meu-painel titulo="Listagem de exercicios">
-	<div class="table-responsive">
-		<table class="table table-hover">
-			<tr>
-				<th>Exercicio</th>
-				<th>Quantidade</th>
-				<th>Medida</th>
-				<th class="text-center">Ação</th>
-			</tr>
-
-
-			<tr ng-repeat="elemento in exerciciosArray track by $index | orderBy:'nome'">
-			<!-- <tr ng-repeat="exercicio in serie.exercicios | filter: filtro | orderBy:'nome'"> -->
-				<td>
-					{{elemento.exercicio.nome}} 
-					<!-- {{exercicioTeste.nome}} -->
-				</td>
-				<td>
-					{{elemento.quantidade}}
-				</td>
-				<td>
-					<!-- {{exercicio.medida}} -->
-					<!-- {{serie.exercicios[0].medida.nome}} -->
-					{{elemento.medida.nome}}
-				</td>
-				<td class="text-center">
-					<!-- <meu-botao-aviso nome="Remover" acao="remove(elemento)"></meu-botao-aviso> -->
-					<button type="button" class="btn btn-warning" ng-click="remove(elemento)">
-			Remover
-		</button>
-				</td>
-			</tr>
-		</table>
-		
-	</div>
-</meu-painel>
-
-
-
-
-
-
+				<tr ng-repeat="elemento in exerciciosArray track by $index | orderBy:'nome'">
+					<td>
+						{{elemento.exercicio.nome}} 
+					</td>
+					<td>
+						{{elemento.quantidade}}
+					</td>
+					<td>
+						{{elemento.medida.nome}}
+					</td>
+					<td class="text-center">
+						<button type="button" class="btn btn-warning" ng-click="remove(elemento)">Remover</button>
+					</td>
+				</tr>
+			</table>
+			
+		</div>
+	</meu-painel>
 
     <div>
 		<button type="submit" class="btn btn-primary">
