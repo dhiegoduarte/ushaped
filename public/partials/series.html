@@ -19,7 +19,7 @@
 			</tr>
 			<tr ng-repeat="serie in series | filter: filtro | orderBy:'nome'">
 				<td>
-					<a ng-href="#/serie/{{serie._id}}">{{serie.nome}}</a>
+					<a ng-href="#/serie/{{serie._id}}">{{serie.nome}} {{serie.exercicios[0].exercicio.nome}} {{serie.exercicios[0].medida.nome}}</a>
 				</td>
 				<td class="text-center">
 					<meu-botao-aviso nome="Remover" acao="remove(serie)">
