@@ -11,6 +11,8 @@ angular.module('ushaped').controller('SerieController',
 
 		
 		var exerciciosArray = [];
+
+		$scope.elemento = {};
 		
 		if($routeParams.serieId) {
 			console.log('$routeParams.serieId. Vou chamar o /series/:id', Date.now());
@@ -34,7 +36,7 @@ angular.module('ushaped').controller('SerieController',
 		} else {
 			$scope.serie = new Serie();
 			$scope.exerciciosArray = [];
-			$scope.elemento = {};
+			
 			
 		}
 
@@ -94,28 +96,27 @@ angular.module('ushaped').controller('SerieController',
 // var clone = Object.assign({}, obj);
 		
 		$scope.addExercicio = function(elemento) {
+			if (typeof elemento !== "undefined" && Object.keys(elemento).length > 0) {
+				console.log("elemento.exercicio add:", elemento);
+				var clone = JSON.parse(JSON.stringify(elemento));
+				console.log("clone.exercicio add:", clone);
 
-			// validar se elemento é undefined
-			console.log("elemento.exercicio add:", elemento);
-			var clone = JSON.parse(JSON.stringify(elemento));
-			console.log("clone.exercicio add:", clone);
+				clone.exercicioNome = ($filter('filter')($scope.exercicios, {_id: clone.exercicio}, true)[0]).nome;
+				exerciciosArray.push(clone);
+				// $scope.serie.exercicios.push(elemento);
 
-			clone.exercicioNome = ($filter('filter')($scope.exercicios, {_id: clone.exercicio}, true)[0]).nome;
-			exerciciosArray.push(clone);
-			// $scope.serie.exercicios.push(elemento);
+				// $scope.serie.exercicios = exerciciosArray;
 
-			// $scope.serie.exercicios = exerciciosArray;
+				
 
-			
+	 			$scope.exerciciosArray = exerciciosArray;
 
- 			$scope.exerciciosArray = exerciciosArray;
+	console.log("elemento:", elemento);
+	// $scope.serie = new Serie();
 
-console.log("elemento:", elemento);
-// $scope.serie = new Serie();
+				$scope.elemento = {};
 
-			$scope.elemento = {};
-
-
+			}
 
 
 

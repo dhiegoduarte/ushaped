@@ -48,20 +48,11 @@
 
 				<tr ng-repeat="linha in exerciciosArray track by $index | orderBy:'nome'">
 					<td ng-show="linha.exercicio.nome">
-						{{linha.exercicio}} {{linha.exercicio.nome}} 
+						{{linha.exercicio.nome}} 
 					</td>
 					<td ng-show="linha.exercicioNome">
-						{{linha.exercicio}} {{linha.exercicioNome}}
+						{{linha.exercicioNome}}
 					</td>
-					<!-- <td>
-						- {{linha.exercicio.nome}}  
-						{{linha.exercicioNome}} 
-						 {{linha}}  
-						 {{exercicios}}  
-						 {{exercicios.find(check)}} 
-						 {{$filter('filter')(exercicios, {_id: linha.exercicio}, true)[0]}}
-						<select id="exercicioLinha" ng-model="teste" ng-options="exercicio._id as exercicio.nome for exercicio in exercicios"></select>
-					</td> -->
 					<td>
 						{{linha.quantidade}}
 					</td>
