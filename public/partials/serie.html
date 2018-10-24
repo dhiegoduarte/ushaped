@@ -46,18 +46,30 @@
 					<th class="text-center">Ação</th>
 				</tr>
 
-				<tr ng-repeat="elemento in exerciciosArray track by $index | orderBy:'nome'">
+				<tr ng-repeat="linha in exerciciosArray track by $index | orderBy:'nome'">
+					<td ng-show="linha.exercicio.nome">
+						{{linha.exercicio}} {{linha.exercicio.nome}} 
+					</td>
+					<td ng-show="linha.exercicioNome">
+						{{linha.exercicio}} {{linha.exercicioNome}}
+					</td>
+					<!-- <td>
+						- {{linha.exercicio.nome}}  
+						{{linha.exercicioNome}} 
+						 {{linha}}  
+						 {{exercicios}}  
+						 {{exercicios.find(check)}} 
+						 {{$filter('filter')(exercicios, {_id: linha.exercicio}, true)[0]}}
+						<select id="exercicioLinha" ng-model="teste" ng-options="exercicio._id as exercicio.nome for exercicio in exercicios"></select>
+					</td> -->
 					<td>
-						{{elemento.exercicio.nome}} 
+						{{linha.quantidade}}
 					</td>
 					<td>
-						{{elemento.quantidade}}
-					</td>
-					<td>
-						{{elemento.medida.nome}}
+						{{linha.medida.nome}}
 					</td>
 					<td class="text-center">
-						<button type="button" class="btn btn-warning" ng-click="remove(elemento)">Remover</button>
+						<button type="button" class="btn btn-warning" ng-click="remove(linha)">Remover</button>
 					</td>
 				</tr>
 			</table>

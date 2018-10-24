@@ -28,7 +28,7 @@ module.exports = function (app) {
 	controller.obtemSerie = function(req, res) {
 		console.log("controller.obtemSerie");
 		var _id = req.params.id;
-		// Serie.findById(_id).exec() TODO testes Dhiego
+		// Serie.findById(_id).exec() TODO testes Dhiego tirar o populate
 		Serie.findById(_id).populate('exercicios.exercicio').populate('exercicios.medida').exec()
 		.then(function(serie) {
 			if (!serie) throw new Error("Serie não encontrado");
