@@ -33,13 +33,13 @@ angular.module('ushaped').controller('SerieController',
 
 		// Para popular o combo de exercicios
 		Exercicio.query(function(exercicios) {
-			console.log('Combo Exercicio');
+			// console.log('Combo Exercicio');
 			$scope.exercicios = exercicios;
 		});
 
 		// Para popular o combo de mediadas
 		Medida.query(function(medidas) {
-			console.log('Combo Medida');
+			// console.log('Combo Medida');
 			$scope.medidas = medidas;
 		});
 
