@@ -4,8 +4,7 @@ console.log('public/js/controllers/ContatoController.js', Date.now());
 angular.module('ushaped').controller('ContatoController',
 	["$scope", "$routeParams", "Contato", function($scope, $routeParams, Contato) {
 
-		console.log("angular.module('ushaped').controller", Date.now());
-
+		console.log("angular.module('ushaped').controller('ContatoController'", Date.now());
 		
 		if($routeParams.contatoId) {
 			console.log('$routeParams.contatoId. Vou chamar o /contatos/:id', Date.now());

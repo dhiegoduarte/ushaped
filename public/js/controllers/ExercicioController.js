@@ -4,7 +4,7 @@ console.log('public/js/controllers/ExercicioController.js', Date.now());
 angular.module('ushaped').controller('ExercicioController',
 	["$scope", "$routeParams", "Exercicio", function($scope, $routeParams, Exercicio) {
 	
-		console.log("angular.module('ushaped').controller", Date.now());
+		console.log("angular.module('ushaped').controller('ExercicioController'", Date.now());
 
 		if($routeParams.exercicioId) {
 			console.log('$routeParams.exercicioId. Vou chamar o /exercicios/:id', Date.now());
@@ -43,6 +43,5 @@ angular.module('ushaped').controller('ExercicioController',
 			// event bus do AngularJS. Disparando evento para executar diretiva do foco.
 			$scope.$broadcast('exercicioSalvo');
 		};
-
 
 }]);

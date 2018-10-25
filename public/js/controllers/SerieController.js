@@ -1,17 +1,13 @@
 // public/js/controllers/SerieController.js
 console.log('public/js/controllers/SerieController.js', Date.now());
 
-// var serieTeste;
-
 angular.module('ushaped').controller('SerieController',
 	["$scope", "$routeParams", "Serie", "Exercicio", "Medida", "$filter", 
 		function($scope, $routeParams, Serie, Exercicio, Medida, $filter) {
 	
-		console.log("angular.module('ushaped').controller", Date.now());
-
+		console.log("angular.module('ushaped').controller('SerieController'", Date.now());
 		
 		var exerciciosArray = [];
-
 		$scope.elemento = {};
 		
 		if($routeParams.serieId) {
@@ -30,25 +26,22 @@ angular.module('ushaped').controller('SerieController',
 					console.log(erro);
 				}
 			);
-
-
-
 		} else {
 			$scope.serie = new Serie();
 			$scope.exerciciosArray = [];
-			
-			
 		}
 
 		// Para popular o combo de exercicios
-			Exercicio.query(function(exercicios) {
-				$scope.exercicios = exercicios;
-			});
+		Exercicio.query(function(exercicios) {
+			console.log('Combo Exercicio');
+			$scope.exercicios = exercicios;
+		});
 
-			// Para popular o combo de mediadas
-			Medida.query(function(medidas) {
-				$scope.medidas = medidas;
-			});
+		// Para popular o combo de mediadas
+		Medida.query(function(medidas) {
+			console.log('Combo Medida');
+			$scope.medidas = medidas;
+		});
 
 		$scope.salva = function() {
 			console.log('$scope.salva.', Date.now());
@@ -74,56 +67,28 @@ angular.module('ushaped').controller('SerieController',
 		};
 
 		$scope.remove = function(linha) {
-			// console.log('$scope.remove. Vou chamar o /series/:id', Date.now());
-			// Serie.delete({id: serie._id},
-			// 	buscaSeries,
-			// 	function(erro) {
-			// 		$scope.mensagem = {texto: 'Não foi possível remover o serie'};
-			// 		console.log(erro);
-			// 	}
-			// );
-			console.log("linha remove:", linha);
-			console.log("exerciciosArray.indexof(linha):", exerciciosArray.indexOf(linha));
-			
-			
+			// console.log("linha remove:", linha);
+			// console.log("exerciciosArray.indexof(linha):", exerciciosArray.indexOf(linha));
 			exerciciosArray.splice(exerciciosArray.indexOf(linha),1);
-			// $scope.exerciciosArray.pop(linha); 
 			$scope.exerciciosArray = exerciciosArray;
-			// $scope.serie.exercicios = exerciciosArray;
 		};
-
-// var cloneOfA = JSON.parse(JSON.stringify(a));
-// var clone = Object.assign({}, obj);
 		
 		$scope.addExercicio = function(elemento) {
-			if (typeof elemento !== "undefined" && Object.keys(elemento).length > 0) {
-				console.log("elemento.exercicio add:", elemento);
+			if (typeof elemento !== "undefined" && Object.keys(elemento).length > 0 && elemento.exercicio) {
+				// console.log("elemento.exercicio add:", elemento);
 				var clone = JSON.parse(JSON.stringify(elemento));
-				console.log("clone.exercicio add:", clone);
-
-				clone.exercicioNome = ($filter('filter')($scope.exercicios, {_id: clone.exercicio}, true)[0]).nome;
+				// console.log("clone.exercicio add:", clone);
+				if (clone.exercicio) {
+					clone.exercicioNome = ($filter('filter')($scope.exercicios, {_id: clone.exercicio}, true)[0]).nome;
+				}
+				if (clone.medida) {
+					clone.medidaNome = ($filter('filter')($scope.medidas, {_id: clone.medida}, true)[0]).nome;
+				}
 				exerciciosArray.push(clone);
-				// $scope.serie.exercicios.push(elemento);
-
-				// $scope.serie.exercicios = exerciciosArray;
-
-				
-
 	 			$scope.exerciciosArray = exerciciosArray;
-
-	console.log("elemento:", elemento);
-	// $scope.serie = new Serie();
-
+				// console.log("elemento:", elemento);
 				$scope.elemento = {};
-
 			}
-
-
-
-			// $scope.check = function(_id) {return _id == elemento.exercicio;}
-
 		};
-
-
 
 }]);

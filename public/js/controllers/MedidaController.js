@@ -4,7 +4,7 @@ console.log('public/js/controllers/MedidaController.js', Date.now());
 angular.module('ushaped').controller('MedidaController',
 	["$scope", "$routeParams", "Medida", function($scope, $routeParams, Medida) {
 	
-		console.log("angular.module('ushaped').controller", Date.now());
+		console.log("angular.module('ushaped').controller('MedidaController'", Date.now());
 
 		if($routeParams.medidaId) {
 			console.log('$routeParams.medidaId. Vou chamar o /medidas/:id', Date.now());
@@ -43,6 +43,5 @@ angular.module('ushaped').controller('MedidaController',
 			// event bus do AngularJS. Disparando evento para executar diretiva do foco.
 			$scope.$broadcast('medidaSalvo');
 		};
-
 
 }]);

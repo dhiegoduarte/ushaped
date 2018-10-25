@@ -4,12 +4,10 @@ console.log('public/js/controllers/ExerciciosController.js', Date.now());
 angular.module('ushaped').controller('ExerciciosController',
 	["$scope", "$routeParams", "Exercicio", function($scope, $routeParams, Exercicio) {
 
-		console.log("angular.module('ushaped').controller", Date.now());
+		console.log("angular.module('ushaped').controller('ExerciciosController'", Date.now());
 
 		$scope.exercicios = [];
-		
 		$scope.filtro = '';
-
 		$scope.mensagem = {texto: ''};
 
 		function buscaExercicios() {
@@ -39,8 +37,5 @@ angular.module('ushaped').controller('ExerciciosController',
 				}
 			);
 		};
-
-		
-
 
 }]);

@@ -4,12 +4,10 @@ console.log('public/js/controllers/MedidasController.js', Date.now());
 angular.module('ushaped').controller('MedidasController',
 	["$scope", "$routeParams", "Medida", function($scope, $routeParams, Medida) {
 
-		console.log("angular.module('ushaped').controller", Date.now());
+		console.log("angular.module('ushaped').controller('MedidasController'", Date.now());
 
 		$scope.medidas = [];
-		
 		$scope.filtro = '';
-
 		$scope.mensagem = {texto: ''};
 
 		function buscaMedidas() {
@@ -39,8 +37,5 @@ angular.module('ushaped').controller('MedidasController',
 				}
 			);
 		};
-
-		
-
 
 }]);

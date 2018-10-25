@@ -4,8 +4,7 @@ console.log('public/js/controllers/AlunoController.js', Date.now());
 angular.module('ushaped').controller('AlunoController',
 	["$scope", "$routeParams", "Aluno", function($scope, $routeParams, Aluno) {
 
-		console.log("angular.module('ushaped').controller", Date.now());
-
+		console.log("angular.module('ushaped').controller('AlunoController'", Date.now());
 		
 		if($routeParams.alunoId) {
 			console.log('$routeParams.alunoId. Vou chamar o /alunos/:id', Date.now());

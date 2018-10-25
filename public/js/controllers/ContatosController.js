@@ -5,12 +5,10 @@ console.log('public/js/controllers/ContatosController.js', Date.now());
 angular.module('ushaped').controller('ContatosController',
 	["$scope", "$routeParams", "Contato", function($scope, $routeParams, Contato) {
 	
-		console.log("angular.module('ushaped').controller", Date.now());
+		console.log("angular.module('ushaped').controller('ContatosController'", Date.now());
 
 		$scope.contatos = [];
-
 		$scope.filtro = '';
-
 		$scope.mensagem = {texto: ''};
 
 		function buscaContatos() {

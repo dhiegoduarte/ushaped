@@ -4,12 +4,10 @@ console.log('public/js/controllers/SeriesController.js', Date.now());
 angular.module('ushaped').controller('SeriesController',
 	["$scope", "$routeParams", "Serie", function($scope, $routeParams, Serie) {
 
-		console.log("angular.module('ushaped').controller", Date.now());
+		console.log("angular.module('ushaped').controller('SeriesController'", Date.now());
 
 		$scope.series = [];
-		
 		$scope.filtro = '';
-
 		$scope.mensagem = {texto: ''};
 
 		function buscaSeries() {
@@ -39,8 +37,5 @@ angular.module('ushaped').controller('SeriesController',
 				}
 			);
 		};
-
-		
-
 
 }]);
