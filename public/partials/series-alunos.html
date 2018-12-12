@@ -2,54 +2,62 @@
 <p ng-show="mensagem.texto">
 	{{mensagem.texto}}
 </p>
+
 <input ng-model="filtro" type="search" placeholder="parte do nome">
 <p ng-show="alunos.length">Alunos cadastrados: {{alunos.length}}</p>
 <p class="text-info" ng-hide="alunos.length">Não há alunos cadastrados</p>
-<label for="serie">Serie</label>
-<select id="serie" class="form-control" ng-model="serie" ng-options="serie._id as serie.nome for serie in series"></select>
-<meu-painel titulo="Listagem de alunos">
-	<div class="table-responsive">
-		<table class="table table-hover">
-			<tr>
-				<th>Nome</th>
-				<th>E-mail</th>
-				<!-- <th>Emergência</th> -->
-				<th class="text-center">Ação</th>
-			</tr>
-			<!-- <tr>
-				<td>
-					<a>Contato</a>
-				</td>
-				<td>cont@empresa.com.br</td>
-				<td class="text-center">
-					<button class="btn btn-warning">
-						Remover
-					</button>
-				</td>
-			</tr> -->
-			<tr ng-repeat="aluno in alunos | filter: filtro | orderBy:'nome'">
-				<td>
-					<!-- <a>{{aluno.nome}}</a> -->
-					<a ng-href="#/aluno/{{aluno._id}}">{{aluno.nome}}</a>
-				</td>
-				<td>{{aluno.email}}</td>
-				<!-- <td>{{aluno.emergencia.nome}}</td> -->
-				<td class="text-center">
-					<!-- <button ng-click="remove(aluno)" class="btn btn-warning">
-						Remover
-					</button> -->
-					<!-- <input type="checkbox" class="form-check-input" ng-model="myCountry.selected[aluno._id]">  -->
-					<input type="checkbox" class="form-check-input" ng-model="alunosSelecionados[aluno._id]"><!--id="feminino" name="feminino" value="F" -->
-					
-				</td>
-			</tr>
-		</table>
-		<button type="butotn" class="btn btn-primary" ng-click="salva()" >
+
+<form ng-submit="salva()">
+	<div class="form-row">
+		<div class="form-group col-12">
+			<label for="serie">Serie</label>
+			<select id="serie" class="form-control" required ng-model="serie" ng-options="serie._id as serie.nome for serie in series"></select>
+		</div>
+	</div>
+	<meu-painel titulo="Listagem de alunos">
+		<div class="table-responsive">
+			<table class="table table-hover">
+				<tr>
+					<th>Nome</th>
+					<th>E-mail</th>
+					<!-- <th>Emergência</th> -->
+					<th class="text-center">Ação</th>
+				</tr>
+				<!-- <tr>
+					<td>
+						<a>Contato</a>
+					</td>
+					<td>cont@empresa.com.br</td>
+					<td class="text-center">
+						<button class="btn btn-warning">
+							Remover
+						</button>
+					</td>
+				</tr> -->
+				<tr ng-repeat="aluno in alunos | filter: filtro | orderBy:'nome'">
+					<td>
+						<!-- <a>{{aluno.nome}}</a> -->
+						<a ng-href="#/aluno/{{aluno._id}}">{{aluno.nome}}</a>
+					</td>
+					<td>{{aluno.email}}</td>
+					<!-- <td>{{aluno.emergencia.nome}}</td> -->
+					<td class="text-center">
+						<!-- <button ng-click="remove(aluno)" class="btn btn-warning">
+							Remover
+						</button> -->
+						<!-- <input type="checkbox" class="form-check-input" ng-model="myCountry.selected[aluno._id]">  -->
+						<input type="checkbox" class="form-check-input" ng-model="alunosSelecionados[aluno._id]"><!--id="feminino" name="feminino" value="F" -->
+						
+					</td>
+				</tr>
+			</table>
+		</div>
+	</meu-painel> 
+	<div>
+		<button type="submit" id="salvar" class="btn btn-primary">
 			Salvar
 		</button>
-		<a ng-href="#/" class="btn">Voltar</a>
-		<!-- <a ng-href="#/aluno" class="btn btn-primary">Novo</a>
-		 -->
+		<a meu-focus evento="seriesAlunosSalvo" href="#/" class="btn btn-default">Voltar</a>
 	</div>
-</meu-painel> 
+</form>
 

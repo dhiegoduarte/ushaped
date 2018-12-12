@@ -48,29 +48,76 @@ angular.module('ushaped').controller('SeriesAlunosController',
 		// };
 
 		$scope.salva = function() {
-			console.log('$scope.salva.', Date.now());
-			console.log('$scope.alunosSelecionados', $scope.alunosSelecionados);
+			if (typeof $scope.serie !== "undefined" && Object.keys($scope.serie).length > 0 && Object.keys($scope.alunosSelecionados).length > 0) {
+				console.log('$scope.salva.', Date.now());
+				Serie.get({id: $scope.serie},
+				function(serie) {
+					console.log('serie buscada ', serie);
+					// adiciona a serie a cada aluno selecionado
+					console.log('$scope.alunos', $scope.alunos);
+					console.log('$scope.alunosSelecionados', $scope.alunosSelecionados);
+					console.log('Object.keys($scope.alunosSelecionados).length', Object.keys($scope.alunosSelecionados).length);
+					console.log('$scope.alunosSelecionados', typeof $scope.alunosSelecionados);
+					// for (i = 0; i < Object.keys($scope.alunosSelecionados).length; i++) {
+					// 	if ($scope.alunosSelecionados) {
 
-			console.log('$scope.serie._id',$scope.serie._id);
-			// // função $save gera por debaixo dos panos uma requisição do tipo POST que envia para 
-			// // http://localhost/series os dados do serie. $resource não dá suporte a PUT. 
-			// $scope.serie.exercicios = exerciciosArray;
-			// $scope.serie.$save()
-			// .then(function() {
-			// 	$scope.mensagem = {texto: 'Salvo com sucesso!'};
-			// 		// limpa o formulário
-			// 		$scope.serie = new Serie();
-			// 		$scope.exerciciosArray = [];
-			// 		$scope.elemento = {};
-			// 	})
-			// .catch(function(erro) {
-			// 	$scope.mensagem = {texto: 'Não foi possível salvar'};
-			// });
-			// // para ser usado na diretiva do foco em meus-componentes.js
-			// // $scope.btnBackFocus = true;
+					// 	}
+					// }
 
-			// // event bus do AngularJS. Disparando evento para executar diretiva do foco.
-			// $scope.$broadcast('serieSalvo');
+					Object.keys($scope.alunosSelecionados).forEach(e => {console.log(`key=${e}  value=${$scope.alunosSelecionados[e]}`); console.log('funciona');});
+
+					Object.keys($scope.alunosSelecionados).forEach(function(e) {
+						console.log('key=', e);
+						console.log('value=', $scope.alunosSelecionados[e]);
+						console.log('funciona');
+					});
+						
+					
+
+					// $scope.serie = serie;
+					// $scope.exerciciosArray = serie.exercicios;
+					// exerciciosArray = serie.exercicios;
+					
+				},
+				function(erro) {
+					$scope.mensagem = {
+						texto: 'Não foi possível obter o serie.'
+					};
+					console.log(erro);
+				}
+			);
+
+
+
+
+
+
+
+				// console.log('typeof $scope.serie', typeof $scope.serie);
+				// console.log('$scope.alunosSelecionados', typeof $scope.alunosSelecionados);
+				// console.log('$scope.alunosSelecionados', $scope.alunosSelecionados);
+
+				// console.log('$scope.serie',$scope.serie);
+				// // função $save gera por debaixo dos panos uma requisição do tipo POST que envia para 
+				// // http://localhost/series os dados do serie. $resource não dá suporte a PUT. 
+				// $scope.serie.exercicios = exerciciosArray;
+				// $scope.serie.$save()
+				// .then(function() {
+				// 	$scope.mensagem = {texto: 'Salvo com sucesso!'};
+				// 		// limpa o formulário
+				// 		$scope.serie = new Serie();
+				// 		$scope.exerciciosArray = [];
+				// 		$scope.elemento = {};
+				// 	})
+				// .catch(function(erro) {
+				// 	$scope.mensagem = {texto: 'Não foi possível salvar'};
+				// });
+				// // para ser usado na diretiva do foco em meus-componentes.js
+				// // $scope.btnBackFocus = true;
+
+				// // event bus do AngularJS. Disparando evento para executar diretiva do foco.
+				// $scope.$broadcast('serieSalvo');
+			};
 		};
 
 }]);

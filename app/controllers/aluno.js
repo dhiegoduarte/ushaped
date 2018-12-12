@@ -35,6 +35,8 @@ module.exports = function (app) {
 		console.log("controller.obtemAluno");
 		var _id = req.params.id;
 		Aluno.findById(_id).exec()
+		// se quiser buscar apenas o nome e email usa select 
+		// Aluno.findById(_id).select("nome email").exec()
 		.then(function(aluno) {
 			if (!aluno) throw new Error("Aluno não encontrado");
 			res.json(aluno) ;
@@ -72,6 +74,7 @@ module.exports = function (app) {
 		Independente da quantidade de parâmetros,
 		apenas selecionamos o nome, email e emergencia:
 		*/
+		console.log("req.body ",req.body);
 		var dados = {
 			"nome" : req.body.nome,
 			"genero" : req.body.genero,
