@@ -22,7 +22,7 @@ angular.module('ushaped').controller('AlunoController',
 			);
 		} else {
 			$scope.aluno = new Aluno();
-		}
+		};
 
 		$scope.salva = function() {
 			console.log('$scope.salva.', Date.now());

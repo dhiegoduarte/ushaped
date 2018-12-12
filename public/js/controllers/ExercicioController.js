@@ -22,7 +22,7 @@ angular.module('ushaped').controller('ExercicioController',
 			);
 		} else {
 			$scope.exercicio = new Exercicio();
-		}
+		};
 
 		$scope.salva = function() {
 			console.log('$scope.salva.', Date.now());

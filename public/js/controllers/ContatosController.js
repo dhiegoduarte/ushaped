@@ -25,7 +25,7 @@ angular.module('ushaped').controller('ContatosController',
 					console.log(erro);
 				}
 			);
-		}
+		};
 
 		buscaContatos();
 

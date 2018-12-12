@@ -25,7 +25,7 @@ angular.module('ushaped').controller('AlunosController',
 					console.log(erro);
 				}
 			);
-		}
+		};
 
 		buscaAlunos();
 

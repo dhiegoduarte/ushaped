@@ -23,7 +23,7 @@ angular.module('ushaped').controller('SeriesController',
 					console.log(erro);
 				}
 			);
-		}
+		};
 
 		buscaSeries();
 

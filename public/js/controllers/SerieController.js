@@ -29,7 +29,7 @@ angular.module('ushaped').controller('SerieController',
 		} else {
 			$scope.serie = new Serie();
 			$scope.exerciciosArray = [];
-		}
+		};
 
 		// Para popular o combo de exercicios
 		Exercicio.query(function(exercicios) {

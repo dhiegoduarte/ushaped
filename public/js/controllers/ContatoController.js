@@ -22,7 +22,7 @@ angular.module('ushaped').controller('ContatoController',
 			);
 		} else {
 			$scope.contato = new Contato();
-		}
+		};
 
 		$scope.salva = function() {
 			console.log('$scope.salva.', Date.now());

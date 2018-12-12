@@ -22,7 +22,7 @@ angular.module('ushaped').controller('MedidaController',
 			);
 		} else {
 			$scope.medida = new Medida();
-		}
+		};
 
 		$scope.salva = function() {
 			console.log('$scope.salva.', Date.now());

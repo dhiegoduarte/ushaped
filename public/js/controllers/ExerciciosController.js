@@ -23,7 +23,7 @@ angular.module('ushaped').controller('ExerciciosController',
 					console.log(erro);
 				}
 			);
-		}
+		};
 
 		buscaExercicios();
 

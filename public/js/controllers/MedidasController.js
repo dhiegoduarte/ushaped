@@ -23,7 +23,7 @@ angular.module('ushaped').controller('MedidasController',
 					console.log(erro);
 				}
 			);
-		}
+		};
 
 		buscaMedidas();
 
