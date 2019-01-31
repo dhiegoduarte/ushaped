@@ -4,8 +4,8 @@
 </p>
 
 <input ng-model="filtro" type="search" placeholder="parte do nome">
-<p ng-show="alunos.length">Alunos cadastrados: {{alunos.length}}</p>
-<p class="text-info" ng-hide="alunos.length">Não há alunos cadastrados</p>
+<p ng-show="alunos.length">Alunos sem séries associadas: {{alunos.length}}</p>
+<p class="text-info" ng-hide="alunos.length">Todos os alunos já possuem séries associadas!</p>
 
 <form ng-submit="salva()">
 	<div class="form-row">
@@ -37,7 +37,7 @@
 				<tr ng-repeat="aluno in alunos | filter: filtro | orderBy:'nome'">
 					<td>
 						<!-- <a>{{aluno.nome}}</a> -->
-						<a ng-href="#/aluno/{{aluno._id}}">{{aluno.nome}}</a>
+						{{aluno.nome}}
 					</td>
 					<td>{{aluno.email}}</td>
 					<!-- <td>{{aluno.emergencia.nome}}</td> -->

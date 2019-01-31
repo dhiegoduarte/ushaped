@@ -12,6 +12,7 @@ angular.module('ushaped').controller('AlunoController',
 				function(aluno) {
 					// console.log('aluno', aluno); 
 					$scope.aluno = aluno;
+					console.log('$scope.aluno', $scope.aluno);
 				},
 				function(erro) {
 					$scope.mensagem = {

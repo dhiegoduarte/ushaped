@@ -83,6 +83,8 @@ angular.module('ushaped').controller('SeriesAlunosController',
 								$scope.alunos.splice($scope.alunos.indexOf(e),1);
 								//limpa o combo de serie
 								$scope.serie = '';
+								//limpa os alunos selecionados
+								$scope.alunosSelecionados = {};
 							})
 						.catch(function(erro) {
 							$scope.mensagem = {texto: 'Não foi possível salvar'};

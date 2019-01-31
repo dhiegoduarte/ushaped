@@ -34,7 +34,7 @@ module.exports = function (app) {
 	controller.obtemAluno = function(req, res) {
 		console.log("controller.obtemAluno");
 		var _id = req.params.id;
-		Aluno.findById(_id).exec()
+		Aluno.findById(_id).populate('series.exercicios.exercicio').populate('series.exercicios.medida').exec()
 		// se quiser buscar apenas o nome e email usa select 
 		// Aluno.findById(_id).select("nome email").exec()
 		.then(function(aluno) {
