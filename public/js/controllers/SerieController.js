@@ -67,7 +67,7 @@ angular.module('ushaped').controller('SerieController',
 		};
 
 		$scope.remove = function(linha) {
-			// console.log("linha remove:", linha);
+			console.log("linha remove:", linha);
 			// console.log("exerciciosArray.indexof(linha):", exerciciosArray.indexOf(linha));
 			exerciciosArray.splice(exerciciosArray.indexOf(linha),1);
 			$scope.exerciciosArray = exerciciosArray;

@@ -70,26 +70,25 @@ module.exports = function (app) {
 	controller.salvaAluno = function(req, res) {
 		console.log("controller.salvaAluno");
 		var _id = req.body._id;
-		/*
-		Independente da quantidade de parâmetros,
-		apenas selecionamos o nome, email e emergencia:
-		*/
+		
 		console.log("req.body ",req.body);
-		var dados = {
-			"nome" : req.body.nome,
-			"genero" : req.body.genero,
-			"email" : req.body.email,
-			"telefone" : req.body.telefone,
-			"altura" : req.body.altura,
-			"peso" : req.body.peso,
-		};
+		
+		//TODO adicionar esse mapeamento pois evita que campos injetados indevidamente na requisição sejam salvos
+		// var dados = {
+		// 	"nome" : req.body.nome,
+		// 	"genero" : req.body.genero,
+		// 	"email" : req.body.email,
+		// 	"telefone" : req.body.telefone,
+		// 	"altura" : req.body.altura,
+		// 	"peso" : req.body.peso,
+		// };
 		
 		// testando por undefined
 		// req.body.emergencia = req.body.emergencia || null;
 
 		if(_id) {
-			// Aluno.findByIdAndUpdate(_id, req.body).exec()
-			Aluno.findByIdAndUpdate(_id, dados).exec()
+			Aluno.findByIdAndUpdate(_id, req.body).exec()
+			// Aluno.findByIdAndUpdate(_id, dados).exec()
 			.then(
 				function(aluno) {
 					res.json(aluno);

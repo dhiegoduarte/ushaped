@@ -3,12 +3,14 @@ console.log('public/js/controllers/SeriesAlunosController.js', Date.now());
 // testando();
 
 angular.module('ushaped').controller('SeriesAlunosController',
-	["$scope", "$routeParams", "Serie", "Aluno", function($scope, $routeParams, Serie, Aluno) {
+	["$scope", "$routeParams", "Serie", "Aluno", "$filter", 
+		function($scope, $routeParams, Serie, Aluno, $filter) {
 	
 		console.log("angular.module('ushaped').controller('SeriesAlunosController'", Date.now());
 
 		$scope.alunos = [];
 		$scope.filtro = '';
+		$scope.aluno = '';
 		$scope.mensagem = {texto: ''};
 		$scope.alunosSelecionados = {};
 
@@ -64,13 +66,36 @@ angular.module('ushaped').controller('SeriesAlunosController',
 					// 	}
 					// }
 
-					Object.keys($scope.alunosSelecionados).forEach(e => {console.log(`key=${e}  value=${$scope.alunosSelecionados[e]}`); console.log('funciona');});
-
-					Object.keys($scope.alunosSelecionados).forEach(function(e) {
-						console.log('key=', e);
-						console.log('value=', $scope.alunosSelecionados[e]);
+					Object.keys($scope.alunosSelecionados).forEach(e => {
+						console.log(`key=${e}  value=${$scope.alunosSelecionados[e]}`); 
 						console.log('funciona');
+
+						$scope.aluno = ($filter('filter')($scope.alunos, {_id: e}, true)[0]);
+						$scope.aluno.series.push(serie);
+						console.log('$scope.aluno', $scope.aluno);
+
+						$scope.aluno.$save()
+						.then(function() {
+							$scope.mensagem = {texto: 'Salvo com sucesso!'};
+								// limpa o formulário
+								// $scope.aluno = new Aluno();
+								//remove o aluno que já teve a serie salva
+								$scope.alunos.splice($scope.alunos.indexOf(e),1);
+								//limpa o combo de serie
+								$scope.serie = '';
+							})
+						.catch(function(erro) {
+							$scope.mensagem = {texto: 'Não foi possível salvar'};
+						});
+
+
 					});
+
+					// Object.keys($scope.alunosSelecionados).forEach(function(e) {
+					// 	console.log('key=', e);
+					// 	console.log('value=', $scope.alunosSelecionados[e]);
+					// 	console.log('funciona');
+					// });
 						
 					
 

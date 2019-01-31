@@ -5,6 +5,46 @@ var mongoose = require('mongoose');
 
 module.exports = function() {
 	// console.log('module.exports', Date.now());
+
+	var schemaExercicios = mongoose.Schema({
+		exercicio: {
+			type: mongoose.Schema.ObjectId,
+			ref: 'Exercicio'
+		},
+		quantidade: {
+			type: String,
+			required: true
+		},
+		medida: {
+			type: mongoose.Schema.ObjectId,
+			ref: 'Medida'
+		}
+	});
+
+	var schemaSeries = mongoose.Schema({
+		// Existem outros tipos como Number, Date, Boolean e Array,
+		nome: {
+			type: String,
+			required: true,
+			// index: {
+			// 	unique: true
+			// }
+		}
+		,
+		exercicios: [schemaExercicios]
+		// exercicio: {
+		// 	type: mongoose.Schema.ObjectId,
+		// 	ref: 'Exercicio'
+		// },
+		// quantidade: {
+		// 	type: String,
+		// 	required: true
+		// },
+		// medida: {
+		// 	type: mongoose.Schema.ObjectId,
+		// 	ref: 'Medida'
+		// }
+	});
 	
 	var schema = mongoose.Schema({
 		// Existem outros tipos como Number, Date, Boolean e Array,
@@ -35,6 +75,7 @@ module.exports = function() {
 			type: Number,
 			required: true
 		}
+		, series: [schemaSeries]
 		// emergencia: {
 		// 	type: mongoose.Schema.ObjectId,
 		// 	ref: 'Aluno'
