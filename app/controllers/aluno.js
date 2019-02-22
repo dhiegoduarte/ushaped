@@ -99,7 +99,8 @@ module.exports = function (app) {
 				}
 				);
 		} else {
-			Aluno.create(dados)
+			// Aluno.create(dados)
+			Aluno.create(req.body)
 			.then(
 				function(aluno) {
 					res.status(201).json(aluno);
