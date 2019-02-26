@@ -1,10 +1,12 @@
 // test/e2e/seriesAlunosPageSpec.js
 var SeriesAlunosPage = new require('./pages/seriesAlunosPage');
 var AlunoPage = new require('./pages/alunoPage');
+var AlunosPage = new require('./pages/alunosPage');
 
 describe('Página principal', function() {
 	var pagina = new SeriesAlunosPage();
 	var paginaAluno = new AlunoPage();
+	var paginaAlunos = new AlunosPage();
 
 	beforeEach(function() {
 		paginaAluno.visitar();
@@ -18,7 +20,7 @@ describe('Página principal', function() {
 	// 	});
 	// });
 
-	it('Deve atribuir a primeira serie do combo ao primeiro aluno da lista', function() {
+	it('Deve cadastrar um aluno pois os alunos foram removidos nos testes anteriores', function() {
 		console.log("Deve cadastrar um aluno pois os alunos foram removidos nos testes anteriores");
 		var aleatorio = Math.floor((Math.random() * 1000) + 1);
 		paginaAluno.digitarNome('teste' + aleatorio);
@@ -29,7 +31,9 @@ describe('Página principal', function() {
 		paginaAluno.digitarAltura(999);
 		paginaAluno.salvar();
 		expect(paginaAluno.obterMensagem()).toContain('sucesso');
-		
+	});
+
+	it('Deve atribuir a primeira serie do combo ao primeiro aluno da lista', function() {
 		console.log("Deve atribuir a primeira serie do combo ao primeiro aluno da lista");
 		pagina.visitar();
 		// var totalAntes = pagina.obterTotalDeItensDaLista();
@@ -38,6 +42,15 @@ describe('Página principal', function() {
 		// var totalDepois = pagina.obterTotalDeItensDaLista();
 		pagina.salvar();
 		expect(pagina.obterMensagem()).toContain('sucesso');
+	});
+
+	it('Deve remover a serie do aluno', function() {
+		console.log("Deve remover a serie do aluno");
+		paginaAlunos.visitar();
+		paginaAlunos.clicarPrimeiroAlunoDaLista();
+		paginaAluno.removerPrimeiraSerieDaLista();
+		paginaAluno.salvar();
+		expect(paginaAluno.obterMensagem()).toContain('sucesso');
 	});
 
 }); 	

@@ -5,13 +5,13 @@
 
 <input ng-model="filtro" type="search" placeholder="parte do nome">
 <p ng-show="alunos.length">Alunos sem séries associadas: {{alunos.length}}</p>
-<p class="text-info" ng-hide="alunos.length">Todos os alunos já possuem séries associadas!</p>
+<p class="text-info" ng-hide="alunos.length">Todos os alunos já possuem séries associadas! Ao selecionar nova série, a lista com todos os alunos será carregada novamente.</p>
 
 <form ng-submit="salva()">
 	<div class="form-row">
 		<div class="form-group col-12">
 			<label for="serie">Serie</label>
-			<select id="serie" class="form-control" required ng-model="serie" ng-options="serie._id as serie.nome for serie in series"></select>
+			<select id="serie" class="form-control" required ng-model="serie" ng-options="serie._id as serie.nome for serie in series" ng-change="alterado()"></select>
 		</div>
 	</div>
 	<meu-painel titulo="Listagem de alunos">

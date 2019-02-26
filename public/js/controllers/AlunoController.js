@@ -25,6 +25,20 @@ angular.module('ushaped').controller('AlunoController',
 			$scope.aluno = new Aluno();
 		};
 
+		$scope.remove = function(serie) {
+			console.log('$scope.aluno.series', $scope.aluno.series);
+			console.log('serie', serie);
+			$scope.aluno.series.splice($scope.aluno.series.indexOf(serie),1);
+			// exerciciosArray.splice(exerciciosArray.indexOf(linha),1);
+			// Aluno.delete({id: aluno._id},
+			// 	buscaAlunos,
+			// 	function(erro) {
+			// 		$scope.mensagem = {texto: 'Não foi possível remover o aluno'};
+			// 		console.log(erro);
+			// 	}
+			// );
+		};
+
 		$scope.salva = function() {
 			console.log('$scope.salva.', Date.now());
 			// função $save gera por debaixo dos panos uma requisição do tipo POST que envia para 
@@ -46,8 +60,10 @@ angular.module('ushaped').controller('AlunoController',
 		};
 
 		// Para popular o combo de alunos de emergencia
-		Aluno.query(function(alunos) {
-			$scope.alunos = alunos;
-		});
+		// Aluno.query(function(alunos) {
+		// 	$scope.alunos = alunos;
+		// });
+
+		
 
 }]);

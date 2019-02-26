@@ -53,8 +53,10 @@ angular.module('meusComponentes', [])
 		acao : '&'
 	};
 	
+	//Coloquei o type button pq o default na maioria dos browser é submit. Nao queremos esse comportamento 
+	// neste botao pq se estiver dentro de um form vai executar a funcao do botao e depois a que estiver configurada no form
 	directive.template =
-		'<button ng-click="acao()" class="btn btn-warning">'
+		'<button type="button" ng-click="acao()" class="btn btn-warning">'
 			+ '{{nome}}'
 		+ '</button>';
 

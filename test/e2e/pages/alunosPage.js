@@ -12,5 +12,8 @@ var alunosPage = function() {
 	this.removerPrimeiroItemDaLista = function() {
 		element(by.repeater('aluno in alunos').row(0)).element(by.css('.btn')).click();
 	}
+	this.clicarPrimeiroAlunoDaLista = function() {
+		element(by.repeater('aluno in alunos').row(0)).element(by.css('a[href^="#/aluno"]')).click();
+	}
 }
 module.exports = alunosPage;

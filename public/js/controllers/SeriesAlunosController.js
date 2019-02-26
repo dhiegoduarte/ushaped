@@ -115,36 +115,18 @@ angular.module('ushaped').controller('SeriesAlunosController',
 			);
 
 
-
-
-
-
-
-				// console.log('typeof $scope.serie', typeof $scope.serie);
-				// console.log('$scope.alunosSelecionados', typeof $scope.alunosSelecionados);
-				// console.log('$scope.alunosSelecionados', $scope.alunosSelecionados);
-
-				// console.log('$scope.serie',$scope.serie);
-				// // função $save gera por debaixo dos panos uma requisição do tipo POST que envia para 
-				// // http://localhost/series os dados do serie. $resource não dá suporte a PUT. 
-				// $scope.serie.exercicios = exerciciosArray;
-				// $scope.serie.$save()
-				// .then(function() {
-				// 	$scope.mensagem = {texto: 'Salvo com sucesso!'};
-				// 		// limpa o formulário
-				// 		$scope.serie = new Serie();
-				// 		$scope.exerciciosArray = [];
-				// 		$scope.elemento = {};
-				// 	})
-				// .catch(function(erro) {
-				// 	$scope.mensagem = {texto: 'Não foi possível salvar'};
-				// });
-				// // para ser usado na diretiva do foco em meus-componentes.js
-				// // $scope.btnBackFocus = true;
-
-				// // event bus do AngularJS. Disparando evento para executar diretiva do foco.
-				// $scope.$broadcast('serieSalvo');
 			};
 		};
+
+		//Ao alterar o valor do combo de serie, busca todos os alunos novamente 
+		//caso a lista estiver vazia (todos os alunosjá tiveram serie associada anteriormente)
+		$scope.alterado = function() {
+			console.log('$scope.alterado.', Date.now());
+			console.log($scope.alunos);
+			console.log($scope.alunos.length);
+			if ($scope.alunos.length == 0) {
+				buscaAlunos();
+			}
+		}
 
 }]);

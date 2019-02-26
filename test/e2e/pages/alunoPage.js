@@ -27,6 +27,8 @@ var alunoPage = function() {
 	this.obterMensagem = function() {
 		return element(by.binding('mensagem.texto')).getText()
 	};
-	
+	this.removerPrimeiraSerieDaLista = function() {
+		element(by.repeater('serie in aluno.series').row(0)).element(by.css('.btn')).click();
+	}
 }
 module.exports = alunoPage;

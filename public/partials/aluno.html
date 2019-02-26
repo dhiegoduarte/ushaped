@@ -44,15 +44,6 @@
 		</div>
 	</div>
 
-
-
-
-
-
-
-
-	
-
 	<meu-painel titulo="Listagem de series">
 		<div class="table-responsive">
 			<table class="table table-hover">
@@ -62,15 +53,13 @@
 				</tr>
 				<tr ng-repeat="serie in aluno.series | filter: filtro | orderBy:'nome'">
 					<td class="text-center"> 
-						{{serie.nome}}
+						{{serie.nome}} 
 						<table class="table">
 							<tr>
 								<th>Exercicio</th>
 								<th>Quantidade</th>
 								<th>Medida</th>
-								
 							</tr>
-
 							<tr ng-repeat="linha in serie.exercicios track by $index | orderBy:'nome'">
 								<td>
 									{{linha.exercicio.nome}}
@@ -84,12 +73,11 @@
 							</tr>
 						</table>
 					</td>
+					<td class="text-center">
+						<meu-botao-aviso nome="Remover" acao="remove(serie)"></meu-botao-aviso> 
+					</td>
 				</tr>
-
-		
 			</table>
-			<!-- <a ng-href="#/serie" class="btn btn-primary">Nova</a>
-			<a ng-href="#/" class="btn">Voltar</a> -->
 		</div>
 	</meu-painel>
 
@@ -98,3 +86,5 @@
 		<a meu-focus evento="alunoSalvo" href="#/alunos" class="btn btn-default">Voltar</a>
 	</div>
 </form>
+
+	
