@@ -54,6 +54,13 @@ angular.module('ushaped', ['ngRoute','ngResource','meusComponentes'])
 			controller: 'AlunoController'
 		});
 
+		// ? diz q o parametro é opcional
+		// $routeProvider.when('/aluno/serie/:alunoId/:serieId?', {
+		$routeProvider.when('/aluno/serie/:alunoId/:serieId', {
+			templateUrl: 'partials/aluno-serie.html',
+			controller: 'AlunoSerieController'
+		});
+
 		$routeProvider.when('/aluno', {
 			templateUrl: 'partials/aluno.html',
 			controller: 'AlunoController'

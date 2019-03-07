@@ -71,7 +71,7 @@ module.exports = function (app) {
 		console.log("controller.salvaAluno");
 		var _id = req.body._id;
 		
-		console.log("req.body ",req.body);
+		// console.log("req.body ",req.body);
 		
 		//TODO adicionar esse mapeamento pois evita que campos injetados indevidamente na requisição sejam salvos
 		// var dados = {

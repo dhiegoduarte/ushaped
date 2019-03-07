@@ -6,6 +6,8 @@ angular.module('ushaped').controller('AlunoController',
 
 		console.log("angular.module('ushaped').controller('AlunoController'", Date.now());
 		
+		console.log("$routeParams",$routeParams);
+
 		if($routeParams.alunoId) {
 			console.log('$routeParams.alunoId. Vou chamar o /alunos/:id', Date.now());
 			Aluno.get({id: $routeParams.alunoId},
@@ -34,6 +36,24 @@ angular.module('ushaped').controller('AlunoController',
 			// 	buscaAlunos,
 			// 	function(erro) {
 			// 		$scope.mensagem = {texto: 'Não foi possível remover o aluno'};
+			// 		console.log(erro);
+			// 	}
+			// );
+		};
+
+		if($routeParams.serieId) {
+			console.log('$routeParams.serieId.', Date.now());
+			
+			// Aluno.get({id: $routeParams.alunoId},
+			// 	function(aluno) {
+			// 		// console.log('aluno', aluno); 
+			// 		$scope.aluno = aluno;
+			// 		console.log('$scope.aluno', $scope.aluno);
+			// 	},
+			// 	function(erro) {
+			// 		$scope.mensagem = {
+			// 			texto: 'Não foi possível obter o aluno.'
+			// 		};
 			// 		console.log(erro);
 			// 	}
 			// );

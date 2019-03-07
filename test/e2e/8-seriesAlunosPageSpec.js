@@ -44,13 +44,13 @@ describe('Página principal', function() {
 		expect(pagina.obterMensagem()).toContain('sucesso');
 	});
 
-	it('Deve remover a serie do aluno', function() {
-		console.log("Deve remover a serie do aluno");
-		paginaAlunos.visitar();
-		paginaAlunos.clicarPrimeiroAlunoDaLista();
-		paginaAluno.removerPrimeiraSerieDaLista();
-		paginaAluno.salvar();
-		expect(paginaAluno.obterMensagem()).toContain('sucesso');
-	});
+	// it('Deve remover a serie do aluno', function() {
+	// 	console.log("Deve remover a serie do aluno");
+	// 	paginaAlunos.visitar();
+	// 	paginaAlunos.clicarPrimeiroAlunoDaLista();
+	// 	paginaAluno.removerPrimeiraSerieDaLista();
+	// 	paginaAluno.salvar();
+	// 	expect(paginaAluno.obterMensagem()).toContain('sucesso');
+	// });
 
 }); 	

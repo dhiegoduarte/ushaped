@@ -53,7 +53,8 @@
 				</tr>
 				<tr ng-repeat="serie in aluno.series | filter: filtro | orderBy:'nome'">
 					<td class="text-center"> 
-						{{serie.nome}} 
+						<a ng-href="#/aluno/serie/{{aluno._id}}/{{serie._id}}">{{serie.nome}}</a>
+						 
 						<table class="table">
 							<tr>
 								<th>Exercicio</th>
