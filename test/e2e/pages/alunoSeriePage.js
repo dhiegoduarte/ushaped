@@ -1,16 +1,8 @@
-// test/e2e/pages/seriePage.js
-var seriePage = function() {
-	this.visitar = function() {
-		browser.get('http://localhost:3000/#/serie');
-	};
-	this.digitarNome = function(nome) {
-		// element(by.model('serie.nome')).sendKeys(nome);
-		element(by.id('nome')).sendKeys(nome);
-	};
+// test/e2e/pages/alunoSeriePage.js
+var alunoSeriePage = function() {
 	this.selecionarPrimeiroExercicioDaLista = function() {
 		element(by.id('exercicio')).element(by.css('option[value="0"]')).click();
 	};
-
 	this.digitarQuantidade = function(qtd) {
 		// element(by.id('quantidade')).sendKeys(qtd);
 		element(by.model('elemento.quantidade')).sendKeys(qtd);
@@ -37,6 +29,7 @@ var seriePage = function() {
 	this.removerPrimeiroExercicioDaLista = function() {
 		element(by.repeater('linha in serie.exercicios').row(0)).element(by.css('.btn')).click();
 	}
+
 	
 }
-module.exports = seriePage;
+module.exports = alunoSeriePage;

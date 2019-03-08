@@ -24,6 +24,7 @@ angular.module('ushaped').controller('AlunoController',
 				}
 			);
 		} else {
+			// console.log("$scope.aluno = new Aluno()");
 			$scope.aluno = new Aluno();
 		};
 

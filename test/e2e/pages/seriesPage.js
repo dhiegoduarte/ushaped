@@ -12,5 +12,8 @@ var seriesPage = function() {
 	this.removerPrimeiroItemDaLista = function() {
 		element(by.repeater('serie in series').row(0)).element(by.css('.btn')).click();
 	}
+	this.clicarPrimeiraSerieDaLista = function() {
+		element(by.repeater('serie in series').row(0)).element(by.css('a[href^="#/serie"]')).click();
+	}
 }
 module.exports = seriesPage;

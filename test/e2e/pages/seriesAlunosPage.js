@@ -7,7 +7,7 @@ var seriesAlunosPage = function() {
 		return element(by.id('usuario-logado')).getText();
 	};
 	this.selecionarPrimeiraSerieDaLista = function() {
-		element(by.css('option[value="0"]')).click(); //deveria selecionar o primeiro item de todos os combos
+		element(by.css('option[value="0"]')).click();
 	};
 	this.selecionarPrimeiroAluno = function() {
 		// element(by.model('alunosSelecionados[aluno._id]')).click();

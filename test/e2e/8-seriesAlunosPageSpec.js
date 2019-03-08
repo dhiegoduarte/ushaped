@@ -36,21 +36,10 @@ describe('Página principal', function() {
 	it('Deve atribuir a primeira serie do combo ao primeiro aluno da lista', function() {
 		console.log("Deve atribuir a primeira serie do combo ao primeiro aluno da lista");
 		pagina.visitar();
-		// var totalAntes = pagina.obterTotalDeItensDaLista();
 		pagina.selecionarPrimeiraSerieDaLista();
 		pagina.selecionarPrimeiroAluno();
-		// var totalDepois = pagina.obterTotalDeItensDaLista();
 		pagina.salvar();
 		expect(pagina.obterMensagem()).toContain('sucesso');
 	});
-
-	// it('Deve remover a serie do aluno', function() {
-	// 	console.log("Deve remover a serie do aluno");
-	// 	paginaAlunos.visitar();
-	// 	paginaAlunos.clicarPrimeiroAlunoDaLista();
-	// 	paginaAluno.removerPrimeiraSerieDaLista();
-	// 	paginaAluno.salvar();
-	// 	expect(paginaAluno.obterMensagem()).toContain('sucesso');
-	// });
 
 }); 	

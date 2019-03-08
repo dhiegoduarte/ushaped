@@ -30,5 +30,8 @@ var alunoPage = function() {
 	this.removerPrimeiraSerieDaLista = function() {
 		element(by.repeater('serie in aluno.series').row(0)).element(by.css('.btn')).click();
 	}
+	this.clicarPrimeiraSerieDaLista = function() {
+		element(by.repeater('serie in aluno.series').row(0)).element(by.css('a[href^="#/aluno/serie"]')).click();
+	}
 }
 module.exports = alunoPage;

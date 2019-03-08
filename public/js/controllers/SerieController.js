@@ -28,6 +28,9 @@ angular.module('ushaped').controller('SerieController',
 			);
 		} else {
 			$scope.serie = new Serie();
+			// Quando for uma nocva série, para não dar erro no addExercicio de quando for fazer o push(elemento) 
+			// o array de exercicios deve já existir no objeto serie 
+			$scope.serie.exercicios = [];
 			// $scope.exerciciosArray = [];
 		};
 
@@ -74,6 +77,7 @@ angular.module('ushaped').controller('SerieController',
 		};
 		
 		$scope.addExercicio = function(elemento) {
+			console.log($scope.serie);
 			if (typeof elemento !== "undefined" && Object.keys(elemento).length > 0 && elemento.exercicio) {
 				console.log("elemento.exercicio add:", elemento);
 				// var clone = JSON.parse(JSON.stringify(elemento));
