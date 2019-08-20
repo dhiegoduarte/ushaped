@@ -64,7 +64,7 @@ module.exports = function() {
 			}
 		},
 		telefone: {
-			type: Number,
+			type: String,
 			required: true
 		},
 		altura: {
