@@ -14,7 +14,7 @@
 
 Virtual personal trainer. 
 
-Web system developed in MEAN (MongoDB, Express, AngularJS and Node.js). I am using agile methodologies and DevOps techniques like TDD (Test Driven Development) and Continuous Deployment. 
+SPA application developed in MEAN (MongoDB, Express, AngularJS and Node.js). I am using agile methodologies and DevOps techniques like TDD (Test Driven Development) and Continuous Deployment. 
 
 Technologies and frameworks used are: 
 
