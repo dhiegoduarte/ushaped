@@ -14,7 +14,7 @@
 
 SPA application developed in MEAN (MongoDB, Express, AngularJS and Node.js). I am using agile methodologies and DevOps techniques like TDD (Test Driven Development) and Continuous Deployment. 
 
-Source code was written in portuguese.
+Source code was written in Portuguese.
 
 Technologies and frameworks used are: 
 
