@@ -1,4 +1,4 @@
-# Ushaped
+# Virtual personal trainer
 
 <!-- Para aparecer no Git o status do canal do Slack -->
 <!-- [![Slack Status](http://slack.mongoosejs.io/badge.svg)](http://slack.mongoosejs.io) -->
@@ -12,9 +12,9 @@
 
 <!-- [![Get help on Codementor](https://cdn.codementor.io/badges/get_help_github.svg)](https://www.codementor.io/vkarpov?utm_source=github&utm_medium=button&utm_term=vkarpov&utm_campaign=github) -->
 
-Virtual personal trainer. 
-
 SPA application developed in MEAN (MongoDB, Express, AngularJS and Node.js). I am using agile methodologies and DevOps techniques like TDD (Test Driven Development) and Continuous Deployment. 
+
+Source code was written in portuguese.
 
 Technologies and frameworks used are: 
 
