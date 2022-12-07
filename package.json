@@ -13,7 +13,7 @@
     "body-parser": "^1.18.2",
     "cookie-parser": "^1.4.3",
     "ejs": "^2.6.1",
-    "express": "^4.16.3",
+    "express": "^4.17.3",
     "express-load": "^1.1.16",
     "express-session": "^1.15.6",
     "grunt-contrib-uglify-es": "github:gruntjs/grunt-contrib-uglify#harmony",
